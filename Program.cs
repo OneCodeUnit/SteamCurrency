@@ -1,4 +1,3 @@
-using System;
 using System.Globalization;
 
 namespace SteamCurrency
@@ -36,7 +35,7 @@ namespace SteamCurrency
             return result;
         }
 
-        static string GetJson(HttpClient client, int CurrencyCode)
+        private static string GetJson(HttpClient client, int CurrencyCode)
         {
             HttpResponseMessage response = client.GetAsync("https://steamcommunity.com/market/priceoverview/?country=RU&currency=" + CurrencyCode + "&appid=730&market_hash_name=M4A1-S | Hyper Beast (Factory New)").Result;
 
@@ -76,12 +75,66 @@ namespace SteamCurrency
             return result;
         }
 
+        internal static double GetQiwi()
+        {
+            HttpClient client = new();
+            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:110.0) Gecko/20100101 Firefox/110.0");
+
+            string jsonQiwi = GetJsonQiwi(client);
+
+            char[] separators = { ',', ':' };
+            string[] tempKZT = jsonQiwi.Split(separators, StringSplitOptions.TrimEntries);
+
+            string result = "0";
+            StringComparison comparison = StringComparison.OrdinalIgnoreCase;
+            for (int i = 0; i < tempKZT.Length; i++)
+            {
+                if (tempKZT[i].Equals("\"from\"", comparison) && tempKZT[i + 1].Equals("\"643\"", comparison))
+                {
+                    if (tempKZT[i + 2].Equals("\"to\"", comparison) && tempKZT[i + 3].Equals("\"398\"", comparison))
+                    {
+                        result = tempKZT[i + 5].Substring(0, tempKZT[i + 5].Length - 1);
+                        break;
+                    }
+                }
+
+            }
+
+            CultureInfo culture = CultureInfo.InvariantCulture;
+            return Convert.ToDouble(result, culture);
+        }
+
+        private static string GetJsonQiwi(HttpClient client)
+        {
+            HttpResponseMessage response = client.GetAsync("https://edge.qiwi.com/sinap/crossRates").Result;
+
+            if (response.IsSuccessStatusCode == false)
+            {
+                return "0";
+            }
+            string json = response.Content.ReadAsStringAsync().Result;
+            return json;
+        }
+
+        internal static double CalculateFunds(double RUB, double KZT_Qiwi, double KZT_Steam, double USD)
+        {
+            //RUB - введённая сумма
+            //KZT_Qiwi - рублей за тенге (Qiwi)
+            //KZT_Steam - тенге за доллар (Steam)
+            //USD - рублей за доллар (Steam)
+            //Полный путь: Рубли -> Тенге -> Доллары -> Рубли
+            double funds = RUB / KZT_Qiwi; //Рубли -> Тенге
+            funds = funds / KZT_Steam; //Тенге -> Доллары
+            funds = funds * USD; //Доллары -> Рубли
+            return funds;
+        }
+
         internal static string ChangeEnd(string text)
         {
             string textAnalyze;
             if (text.Contains('.'))
             {
-                text = text.Substring(0, text.IndexOf('.') - 1);
+                text = text.Substring(0, text.IndexOf('.'));
             }
 
             if (text.Length > 2)
@@ -121,57 +174,6 @@ namespace SteamCurrency
                 return "рубля";
             }
             return "рублей";
-        }
-
-        internal static double GetQiwi()
-        {
-            HttpClient client = new();
-            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:110.0) Gecko/20100101 Firefox/110.0");
-
-            string jsonQiwi = GetQiwi(client);
-
-            char[] separators = { ',', ':' };
-            string[] tempKZT = jsonQiwi.Split(separators, StringSplitOptions.TrimEntries);
-
-            string result = "0";
-            StringComparison comparison = StringComparison.OrdinalIgnoreCase;
-            for (int i = 0; i < tempKZT.Length; i++)
-            {
-                if (tempKZT[i].Equals("\"from\"", comparison) && tempKZT[i + 1].Equals("\"643\"", comparison))
-                {
-                    if (tempKZT[i + 2].Equals("\"to\"", comparison) && tempKZT[i + 3].Equals("\"398\"", comparison))
-                    {
-                        result = tempKZT[i + 5].Substring(0, tempKZT[i + 5].Length - 1);
-                        break;
-                    }
-                }
-
-            }
-
-            CultureInfo culture = CultureInfo.InvariantCulture;
-            return Convert.ToDouble(result, culture);
-        }
-
-        static string GetQiwi(HttpClient client)
-        {
-            HttpResponseMessage response = client.GetAsync("https://edge.qiwi.com/sinap/crossRates").Result;
-
-            if (response.IsSuccessStatusCode == false)
-            {
-                return "0";
-            }
-            string json = response.Content.ReadAsStringAsync().Result;
-            return json;
-        }
-
-        internal static double CalculateFunds(double RUB, double KZT_Qiwi, double KZT_Steam, double USD)
-        {
-            //Рубли - Тенге - Доллары - Рубли
-            double funds = RUB / KZT_Qiwi; //Рубли - Тенге
-            funds = funds / KZT_Steam; //Тенге - Доллары
-            funds = funds * USD; //Доллары - Рубли
-
-            return funds;
         }
     }
 }

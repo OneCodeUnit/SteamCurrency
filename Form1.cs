@@ -4,11 +4,11 @@ namespace SteamCurrency
 {
     public partial class MainForm : Form
     {
-        double USD;
-        double KZT_Steam;
-        double KZT_Qiwi;
-        double RUB;
-        double RUB_Output;
+        double USD; //Рублей за доллар (Steam)
+        double KZT_Steam; //Тенге за доллар (Steam)
+        double KZT_Qiwi; //Рублей за тенге (Qiwi)
+        double RUB; //Рублей до конвертации
+        double RUB_Output; //Рублей после конвертации
         readonly CultureInfo culture = CultureInfo.InvariantCulture;
         readonly string TextUSD = "Доллар - ";
         readonly string TextKZT = "Тенге - ";
@@ -20,7 +20,7 @@ namespace SteamCurrency
 
         private void ButtonGet_Click(object sender, EventArgs e)
         {
-            ButtonGet.Text = "Обновить";
+            ButtonGet.Text = "Обновление";
             PictureBoxKZT.Image = Properties.Resources.wait_c;
             PictureBoxUSD.Image = Properties.Resources.wait_c;
             string[] RawCurrency = Program.GetCurrency();
@@ -53,6 +53,7 @@ namespace SteamCurrency
                 PictureBoxKZT.Image = Properties.Resources.yes_c;
             }
             TextBoxInput.Enabled = true;
+            ButtonGet.Text = "Обновить";
         }
 
         private void TextBoxInput_TextChanged(object sender, EventArgs e)
@@ -70,7 +71,6 @@ namespace SteamCurrency
                 }
             }
             TextBoxInput.Text = text;
-
             labelRUB1.Text = Program.ChangeEnd(text);
 
             if (text.Length == 0)
@@ -95,7 +95,7 @@ namespace SteamCurrency
 
         private void TextBoxLost_TextChanged(object sender, EventArgs e)
         {
-            labelRUB2.Text = Program.ChangeEnd(TextBoxLost.Text);
+            labelRUB3.Text = Program.ChangeEnd(TextBoxLost.Text);
 
             double percent = 100 - (100 / (RUB / RUB_Output));
             labelPercent.Visible = true;
