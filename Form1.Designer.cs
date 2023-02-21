@@ -45,13 +45,16 @@
             this.labelRUB3 = new System.Windows.Forms.Label();
             this.TextBoxLost = new System.Windows.Forms.TextBox();
             this.labelPercent = new System.Windows.Forms.Label();
+            this.PictureBoxKZTUSD = new System.Windows.Forms.PictureBox();
+            this.LabelKZTUSD = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxKZT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxUSD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxKZTUSD)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonGet
             // 
-            this.ButtonGet.Location = new System.Drawing.Point(11, 113);
+            this.ButtonGet.Location = new System.Drawing.Point(294, 13);
             this.ButtonGet.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonGet.Name = "ButtonGet";
             this.ButtonGet.Size = new System.Drawing.Size(135, 40);
@@ -81,7 +84,7 @@
             // MainLabel
             // 
             this.MainLabel.AutoSize = true;
-            this.MainLabel.Location = new System.Drawing.Point(12, 9);
+            this.MainLabel.Location = new System.Drawing.Point(11, 9);
             this.MainLabel.Name = "MainLabel";
             this.MainLabel.Size = new System.Drawing.Size(134, 28);
             this.MainLabel.TabIndex = 3;
@@ -197,11 +200,30 @@
             this.labelPercent.Text = "(+0%)";
             this.labelPercent.Visible = false;
             // 
+            // PictureBoxKZTUSD
+            // 
+            this.PictureBoxKZTUSD.Location = new System.Drawing.Point(12, 112);
+            this.PictureBoxKZTUSD.Name = "PictureBoxKZTUSD";
+            this.PictureBoxKZTUSD.Size = new System.Drawing.Size(30, 30);
+            this.PictureBoxKZTUSD.TabIndex = 16;
+            this.PictureBoxKZTUSD.TabStop = false;
+            // 
+            // LabelKZTUSD
+            // 
+            this.LabelKZTUSD.AutoSize = true;
+            this.LabelKZTUSD.Location = new System.Drawing.Point(48, 114);
+            this.LabelKZTUSD.Name = "LabelKZTUSD";
+            this.LabelKZTUSD.Size = new System.Drawing.Size(176, 28);
+            this.LabelKZTUSD.TabIndex = 17;
+            this.LabelKZTUSD.Text = "Тенге за доллар - ";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 303);
+            this.Controls.Add(this.LabelKZTUSD);
+            this.Controls.Add(this.PictureBoxKZTUSD);
             this.Controls.Add(this.labelPercent);
             this.Controls.Add(this.TextBoxLost);
             this.Controls.Add(this.labelRUB3);
@@ -228,6 +250,7 @@
             this.Text = "Steam Currency by OliveWizard";
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxKZT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxUSD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxKZTUSD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +274,7 @@
         private Label labelRUB3;
         private TextBox TextBoxLost;
         private Label labelPercent;
+        private PictureBox PictureBoxKZTUSD;
+        private Label LabelKZTUSD;
     }
 }

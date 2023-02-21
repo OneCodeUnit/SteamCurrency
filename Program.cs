@@ -11,14 +11,16 @@ namespace SteamCurrency
             Application.Run(new MainForm());
         }
 
-        internal static string[] GetCurrency()
+        internal static string[] GetCurrencySteam()
         {
             HttpClient client = new();
             client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:110.0) Gecko/20100101 Firefox/110.0");
 
+            //37 - тенге
+            //5 - рубли
+            //1 - доллары
             string jsonUSD = GetJson(client, 1);
             string jsonRUB = GetJson(client, 5);
-            string jsonKZT = GetJson(client, 37);
             char[] separators = { ',', ':' };
 
             string[] tempUSD = jsonUSD.Split(separators, StringSplitOptions.TrimEntries);
@@ -27,11 +29,7 @@ namespace SteamCurrency
             string[] tempRUB = jsonRUB.Split(separators, StringSplitOptions.TrimEntries);
             string RUB = string.Concat(tempRUB[3].AsSpan(1), ".", tempRUB[4].AsSpan(0, tempRUB[4].Length - 6));
 
-            string[] tempKZT = jsonKZT.Split(separators, StringSplitOptions.TrimEntries);
-            string KZT = string.Concat(tempKZT[3].AsSpan(1), ".", tempKZT[4].AsSpan(0, tempKZT[4].Length - 2));
-            KZT = KZT.Replace(" ", "");
-
-            string[] result = { USD, RUB, KZT };
+            string[] result = { USD, RUB };
             return result;
         }
 
@@ -47,35 +45,27 @@ namespace SteamCurrency
             return json;
         }
 
-        internal static double[] CalculateCurrency(string[] RawCurrency)
+        internal static double CalculateCurrency(string[] RawCurrency)
         {
             string tempUSD = RawCurrency[0];
             string tempRUB = RawCurrency[1];
-            string tempKZT = RawCurrency[2];
 
             CultureInfo culture = CultureInfo.InvariantCulture;
 
             double USD = Convert.ToDouble(tempUSD, culture);
             double RUB = Convert.ToDouble(tempRUB, culture);
-            double KZT = Convert.ToDouble(tempKZT, culture);
 
-            double[] result = { 0, 0, 0 };
+            double result = 0;
             if (RUB != 0 && USD != 0)
             {
                 double USDRate = RUB / USD;
-                result[0] = USDRate;
+                result = USDRate;
             }
-            if (KZT != 0 && USD != 0)
-            {
-                double KZTRate = KZT / USD;
-                result[1] = KZTRate;
-            }
-            result[2] = RUB;
 
             return result;
         }
 
-        internal static double GetQiwi()
+        internal static double[] GetCurrencyQiwi()
         {
             HttpClient client = new();
             client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:110.0) Gecko/20100101 Firefox/110.0");
@@ -87,6 +77,11 @@ namespace SteamCurrency
 
             string result = "0";
             StringComparison comparison = StringComparison.OrdinalIgnoreCase;
+            //398 - тенге
+            //643 - рубли
+            //840 - доллары
+            //978 - евро
+            //156 - юани
             for (int i = 0; i < tempKZT.Length; i++)
             {
                 if (tempKZT[i].Equals("\"from\"", comparison) && tempKZT[i + 1].Equals("\"643\"", comparison))
@@ -97,11 +92,24 @@ namespace SteamCurrency
                         break;
                     }
                 }
-
             }
-
             CultureInfo culture = CultureInfo.InvariantCulture;
-            return Convert.ToDouble(result, culture);
+            double[] rates = { 0, 0 };
+            rates[0] = Convert.ToDouble(result, culture);
+            result = "0";
+            for (int i = 0; i < tempKZT.Length; i++)
+            {
+                if (tempKZT[i].Equals("\"from\"", comparison) && tempKZT[i + 1].Equals("\"398\"", comparison))
+                {
+                    if (tempKZT[i + 2].Equals("\"to\"", comparison) && tempKZT[i + 3].Equals("\"840\"", comparison))
+                    {
+                        result = tempKZT[i + 5].Substring(0, tempKZT[i + 5].Length - 1);
+                        break;
+                    }
+                }
+            }
+            rates[1] = Convert.ToDouble(result, culture);
+            return rates;
         }
 
         private static string GetJsonQiwi(HttpClient client)
@@ -116,7 +124,7 @@ namespace SteamCurrency
             return json;
         }
 
-        internal static double CalculateFunds(double RUB, double KZT_Qiwi, double KZT_Steam, double USD)
+        internal static double CalculateFunds(double RUB, double KZT_Qiwi, double USD_Qiwi, double USD)
         {
             //RUB - введённая сумма
             //KZT_Qiwi - рублей за тенге (Qiwi)
@@ -124,7 +132,7 @@ namespace SteamCurrency
             //USD - рублей за доллар (Steam)
             //Полный путь: Рубли -> Тенге -> Доллары -> Рубли
             double funds = RUB / KZT_Qiwi; //Рубли -> Тенге
-            funds = funds / KZT_Steam; //Тенге -> Доллары
+            funds = funds / (USD_Qiwi + 0.0415 * USD_Qiwi); //Тенге -> Доллары (на этом этапе киви каким-то образом подворовывает)
             funds = funds * USD; //Доллары -> Рубли
             return funds;
         }

@@ -5,13 +5,14 @@ namespace SteamCurrency
     public partial class MainForm : Form
     {
         double USD; //Рублей за доллар (Steam)
-        double KZT_Steam; //Тенге за доллар (Steam)
         double KZT_Qiwi; //Рублей за тенге (Qiwi)
+        double USD_Qiwi; //Тенге за доллар (Qiwi)
         double RUB; //Рублей до конвертации
         double RUB_Output; //Рублей после конвертации
         readonly CultureInfo culture = CultureInfo.InvariantCulture;
         readonly string TextUSD = "Доллар - ";
         readonly string TextKZT = "Тенге - ";
+        readonly string TextKZTUSD = "Тенге за доллар - ";
 
         public MainForm()
         {
@@ -21,38 +22,49 @@ namespace SteamCurrency
         private void ButtonGet_Click(object sender, EventArgs e)
         {
             ButtonGet.Text = "Обновление";
+            ButtonGet.Enabled = false;
             PictureBoxKZT.Image = Properties.Resources.wait_c;
             PictureBoxUSD.Image = Properties.Resources.wait_c;
-            string[] RawCurrency = Program.GetCurrency();
-            double[] Currency = Program.CalculateCurrency(RawCurrency);
-            if (Currency[0] == 0 && Currency[1] == 0 && Currency[2] == 0)
+            PictureBoxKZTUSD.Image = Properties.Resources.wait_c;
+            string[] RawCurrency;
+            double Currency;
+
+            RawCurrency = Program.GetCurrencySteam();
+            Currency = Program.CalculateCurrency(RawCurrency);
+            if (Currency == 0)
             {
                 PictureBoxUSD.Image = Properties.Resources.no_c;
             }
-            else if (Currency[0] == 0 || Currency[1] == 0 || Currency[2] == 0)
-            {
-                PictureBoxUSD.Image = Properties.Resources.warn_c;
-            }
             else
             {
-                USD = Currency[0];
+                USD = Currency;
                 LabelUSD.Text = TextUSD + Math.Round(USD, 4).ToString(culture);
-                KZT_Steam = Currency[1];
                 PictureBoxUSD.Image = Properties.Resources.yes_c;
             }
 
-            double Qiwi = Program.GetQiwi();
-            if (Qiwi == 0)
+            double[] Qiwi = Program.GetCurrencyQiwi();
+            if (Qiwi[0] == 0)
             {
                 PictureBoxKZT.Image = Properties.Resources.no_c;
             }
             else
             {
-                KZT_Qiwi = Qiwi;
+                KZT_Qiwi = Qiwi[0];
                 LabelKZT.Text = TextKZT + Math.Round(KZT_Qiwi, 4).ToString(culture);
                 PictureBoxKZT.Image = Properties.Resources.yes_c;
             }
+            if (Qiwi[1] == 0)
+            {
+                PictureBoxKZTUSD.Image = Properties.Resources.no_c;
+            }
+            else
+            {
+                USD_Qiwi = Qiwi[1];
+                LabelKZTUSD.Text = TextKZTUSD + Math.Round(USD_Qiwi, 2).ToString(culture);
+                PictureBoxKZTUSD.Image = Properties.Resources.yes_c;
+            }
             TextBoxInput.Enabled = true;
+            ButtonGet.Enabled = true;
             ButtonGet.Text = "Обновить";
         }
 
@@ -82,7 +94,7 @@ namespace SteamCurrency
                 RUB = Convert.ToDouble(text, culture);
             }
 
-            RUB_Output = Program.CalculateFunds(RUB, KZT_Qiwi, KZT_Steam, USD);
+            RUB_Output = Program.CalculateFunds(RUB, KZT_Qiwi, USD_Qiwi, USD);
             TextBoxOutput.Text = Convert.ToString(Math.Round(RUB_Output, 2), culture);
             double delta = RUB - RUB_Output;
             TextBoxLost.Text = Convert.ToString(Math.Round(delta, 2), culture);
