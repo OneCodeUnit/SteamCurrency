@@ -1,27 +1,28 @@
-using System.Globalization;
+п»їusing System.Globalization;
 
 namespace SteamCurrency
 {
     public partial class MainForm : Form
     {
-        double USD; //Рублей за доллар (Steam)
-        double KZT_Qiwi; //Рублей за тенге (Qiwi)
-        double USD_Qiwi; //Тенге за доллар (Qiwi)
-        double RUB; //Рублей до конвертации
-        double RUB_Output; //Рублей после конвертации
+        double USD; //Р СѓР±Р»РµР№ Р·Р° РґРѕР»Р»Р°СЂ (Steam)
+        double KZT_Qiwi; //Р СѓР±Р»РµР№ Р·Р° С‚РµРЅРіРµ (Qiwi)
+        double USD_Qiwi; //РўРµРЅРіРµ Р·Р° РґРѕР»Р»Р°СЂ (Qiwi)
+        double RUB; //Р СѓР±Р»РµР№ РґРѕ РєРѕРЅРІРµСЂС‚Р°С†РёРё
+        double RUB_Output; //Р СѓР±Р»РµР№ РїРѕСЃР»Рµ РєРѕРЅРІРµСЂС‚Р°С†РёРё
         readonly CultureInfo culture = CultureInfo.InvariantCulture;
-        readonly string TextUSD = "Доллар - ";
-        readonly string TextKZT = "Тенге - ";
-        readonly string TextKZTUSD = "Тенге за доллар - ";
+        readonly string TextUSD = "Р”РѕР»Р»Р°СЂ - ";
+        readonly string TextKZT = "РўРµРЅРіРµ - ";
+        readonly string TextKZTUSD = "РўРµРЅРіРµ Р·Р° РґРѕР»Р»Р°СЂ - ";
 
         public MainForm()
         {
             InitializeComponent();
+            ButtonGet.Focus();
         }
 
         private void ButtonGet_Click(object sender, EventArgs e)
         {
-            ButtonGet.Text = "Обновление";
+            ButtonGet.Text = "РћР±РЅРѕРІР»РµРЅРёРµ";
             ButtonGet.Enabled = false;
             PictureBoxKZT.Image = Properties.Resources.wait_c;
             PictureBoxUSD.Image = Properties.Resources.wait_c;
@@ -65,7 +66,8 @@ namespace SteamCurrency
             }
             TextBoxInput.Enabled = true;
             ButtonGet.Enabled = true;
-            ButtonGet.Text = "Обновить";
+            ButtonGet.Text = "РћР±РЅРѕРІРёС‚СЊ";
+            TextBoxInput.Focus();
         }
 
         private void TextBoxInput_TextChanged(object sender, EventArgs e)
@@ -98,6 +100,8 @@ namespace SteamCurrency
             TextBoxOutput.Text = Convert.ToString(Math.Round(RUB_Output, 2), culture);
             double delta = RUB - RUB_Output;
             TextBoxLost.Text = Convert.ToString(Math.Round(delta, 2), culture);
+            LabelInput.Visible = true;
+            LabelInput.Text = "(" + Convert.ToString(Math.Round(RUB / KZT_Qiwi, 2), culture) + "в‚ё)";
         }
 
         private void TextBoxOutput_TextChanged(object sender, EventArgs e)

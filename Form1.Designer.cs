@@ -47,6 +47,7 @@
             this.labelPercent = new System.Windows.Forms.Label();
             this.PictureBoxKZTUSD = new System.Windows.Forms.PictureBox();
             this.LabelKZTUSD = new System.Windows.Forms.Label();
+            this.LabelInput = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxKZT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxUSD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxKZTUSD)).BeginInit();
@@ -129,7 +130,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 179);
+            this.label1.Location = new System.Drawing.Point(12, 176);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 28);
             this.label1.TabIndex = 8;
@@ -149,9 +150,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(11, 219);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 28);
+            this.label2.Size = new System.Drawing.Size(95, 28);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Я получаю";
+            this.label2.Text = "Я получу";
             // 
             // labelRUB2
             // 
@@ -167,9 +168,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(11, 257);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 28);
+            this.label3.Size = new System.Drawing.Size(109, 28);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Я теряю";
+            this.label3.Text = "Я потеряю";
             // 
             // labelRUB3
             // 
@@ -217,11 +218,22 @@
             this.LabelKZTUSD.TabIndex = 17;
             this.LabelKZTUSD.Text = "Тенге за доллар - ";
             // 
+            // LabelInput
+            // 
+            this.LabelInput.AutoSize = true;
+            this.LabelInput.Location = new System.Drawing.Point(269, 148);
+            this.LabelInput.Name = "LabelInput";
+            this.LabelInput.Size = new System.Drawing.Size(46, 28);
+            this.LabelInput.TabIndex = 18;
+            this.LabelInput.Text = "(0₸)";
+            this.LabelInput.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 303);
+            this.Controls.Add(this.LabelInput);
             this.Controls.Add(this.LabelKZTUSD);
             this.Controls.Add(this.PictureBoxKZTUSD);
             this.Controls.Add(this.labelPercent);
@@ -276,5 +288,6 @@
         private Label labelPercent;
         private PictureBox PictureBoxKZTUSD;
         private Label LabelKZTUSD;
+        private Label LabelInput;
     }
 }
