@@ -7,7 +7,7 @@ namespace SteamCurrencyLib
         public string set { get; set; }
         public string from { get; set; }
         public string to { get; set; }
-        public double rate { get; set; }
+        public float rate { get; set; }
     }
 
     public class QiwiJsonRoot

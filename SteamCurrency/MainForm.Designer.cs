@@ -29,40 +29,40 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            ButtonGet = new Button();
+            ButtonGetRates = new Button();
             LabelUSD = new Label();
             LabelKZT = new Label();
-            MainLabel = new Label();
+            LabelCurrencyRates = new Label();
             PictureBoxKZT = new PictureBox();
             PictureBoxUSD = new PictureBox();
             TextBoxInput = new TextBox();
             TextBoxOutput = new TextBox();
-            label1 = new Label();
-            labelRUB1 = new Label();
-            label2 = new Label();
-            labelRUB2 = new Label();
-            label3 = new Label();
-            labelRUB3 = new Label();
+            LabelTextInput = new Label();
+            LabelRUBInput = new Label();
+            LabelTextOutput = new Label();
+            LabelRUBOutput = new Label();
+            LabelTextLost = new Label();
+            LabelRUBLost = new Label();
             TextBoxLost = new TextBox();
-            labelPercent = new Label();
+            LabelRUBLostPercent = new Label();
             PictureBoxKZTUSD = new PictureBox();
             LabelKZT_USD = new Label();
-            LabelInput = new Label();
+            LabelInputKZT = new Label();
             ((System.ComponentModel.ISupportInitialize)PictureBoxKZT).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureBoxUSD).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureBoxKZTUSD).BeginInit();
             SuspendLayout();
             // 
-            // ButtonGet
+            // ButtonGetRates
             // 
-            ButtonGet.Location = new Point(294, 13);
-            ButtonGet.Margin = new Padding(4);
-            ButtonGet.Name = "ButtonGet";
-            ButtonGet.Size = new Size(135, 40);
-            ButtonGet.TabIndex = 0;
-            ButtonGet.Text = "Получить";
-            ButtonGet.UseVisualStyleBackColor = true;
-            ButtonGet.Click += ButtonGet_Click;
+            ButtonGetRates.Location = new Point(294, 13);
+            ButtonGetRates.Margin = new Padding(4);
+            ButtonGetRates.Name = "ButtonGetRates";
+            ButtonGetRates.Size = new Size(135, 40);
+            ButtonGetRates.TabIndex = 0;
+            ButtonGetRates.Text = "Получить";
+            ButtonGetRates.UseVisualStyleBackColor = true;
+            ButtonGetRates.Click += ButtonGet_Click;
             // 
             // LabelUSD
             // 
@@ -82,18 +82,18 @@
             LabelKZT.TabIndex = 2;
             LabelKZT.Text = "Тенге - ";
             // 
-            // MainLabel
+            // LabelCurrencyRates
             // 
-            MainLabel.AutoSize = true;
-            MainLabel.Location = new Point(11, 9);
-            MainLabel.Name = "MainLabel";
-            MainLabel.Size = new Size(134, 28);
-            MainLabel.TabIndex = 3;
-            MainLabel.Text = "Курсы валют:";
+            LabelCurrencyRates.AutoSize = true;
+            LabelCurrencyRates.Location = new Point(11, 9);
+            LabelCurrencyRates.Name = "LabelCurrencyRates";
+            LabelCurrencyRates.Size = new Size(134, 28);
+            LabelCurrencyRates.TabIndex = 3;
+            LabelCurrencyRates.Text = "Курсы валют:";
             // 
             // PictureBoxKZT
             // 
-            PictureBoxKZT.Location = new Point(12, 40);
+            PictureBoxKZT.Location = new Point(11, 40);
             PictureBoxKZT.Name = "PictureBoxKZT";
             PictureBoxKZT.Size = new Size(30, 30);
             PictureBoxKZT.TabIndex = 4;
@@ -101,7 +101,7 @@
             // 
             // PictureBoxUSD
             // 
-            PictureBoxUSD.Location = new Point(12, 76);
+            PictureBoxUSD.Location = new Point(11, 76);
             PictureBoxUSD.Name = "PictureBoxUSD";
             PictureBoxUSD.Size = new Size(30, 30);
             PictureBoxUSD.TabIndex = 5;
@@ -127,59 +127,59 @@
             TextBoxOutput.Text = "0";
             TextBoxOutput.TextChanged += TextBoxOutput_TextChanged;
             // 
-            // label1
+            // LabelTextInput
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 176);
-            label1.Name = "label1";
-            label1.Size = new Size(121, 28);
-            label1.TabIndex = 8;
-            label1.Text = "Я отправлю";
+            LabelTextInput.AutoSize = true;
+            LabelTextInput.Location = new Point(11, 173);
+            LabelTextInput.Name = "LabelTextInput";
+            LabelTextInput.Size = new Size(121, 28);
+            LabelTextInput.TabIndex = 8;
+            LabelTextInput.Text = "Я отправлю";
             // 
-            // labelRUB1
+            // LabelRUBInput
             // 
-            labelRUB1.AutoSize = true;
-            labelRUB1.Location = new Point(269, 176);
-            labelRUB1.Name = "labelRUB1";
-            labelRUB1.Size = new Size(79, 28);
-            labelRUB1.TabIndex = 9;
-            labelRUB1.Text = "рублей";
+            LabelRUBInput.AutoSize = true;
+            LabelRUBInput.Location = new Point(269, 173);
+            LabelRUBInput.Name = "LabelRUBInput";
+            LabelRUBInput.Size = new Size(79, 28);
+            LabelRUBInput.TabIndex = 9;
+            LabelRUBInput.Text = "рублей";
             // 
-            // label2
+            // LabelTextOutput
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(11, 219);
-            label2.Name = "label2";
-            label2.Size = new Size(95, 28);
-            label2.TabIndex = 10;
-            label2.Text = "Я получу";
+            LabelTextOutput.AutoSize = true;
+            LabelTextOutput.Location = new Point(11, 213);
+            LabelTextOutput.Name = "LabelTextOutput";
+            LabelTextOutput.Size = new Size(95, 28);
+            LabelTextOutput.TabIndex = 10;
+            LabelTextOutput.Text = "Я получу";
             // 
-            // labelRUB2
+            // LabelRUBOutput
             // 
-            labelRUB2.AutoSize = true;
-            labelRUB2.Location = new Point(269, 219);
-            labelRUB2.Name = "labelRUB2";
-            labelRUB2.Size = new Size(79, 28);
-            labelRUB2.TabIndex = 11;
-            labelRUB2.Text = "рублей";
+            LabelRUBOutput.AutoSize = true;
+            LabelRUBOutput.Location = new Point(269, 213);
+            LabelRUBOutput.Name = "LabelRUBOutput";
+            LabelRUBOutput.Size = new Size(79, 28);
+            LabelRUBOutput.TabIndex = 11;
+            LabelRUBOutput.Text = "рублей";
             // 
-            // label3
+            // LabelTextLost
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(11, 257);
-            label3.Name = "label3";
-            label3.Size = new Size(109, 28);
-            label3.TabIndex = 12;
-            label3.Text = "Я потеряю";
+            LabelTextLost.AutoSize = true;
+            LabelTextLost.Location = new Point(11, 253);
+            LabelTextLost.Name = "LabelTextLost";
+            LabelTextLost.Size = new Size(109, 28);
+            LabelTextLost.TabIndex = 12;
+            LabelTextLost.Text = "Я потеряю";
             // 
-            // labelRUB3
+            // LabelRUBLost
             // 
-            labelRUB3.AutoSize = true;
-            labelRUB3.Location = new Point(269, 257);
-            labelRUB3.Name = "labelRUB3";
-            labelRUB3.Size = new Size(79, 28);
-            labelRUB3.TabIndex = 13;
-            labelRUB3.Text = "рублей";
+            LabelRUBLost.AutoSize = true;
+            LabelRUBLost.Location = new Point(269, 253);
+            LabelRUBLost.Name = "LabelRUBLost";
+            LabelRUBLost.Size = new Size(79, 28);
+            LabelRUBLost.TabIndex = 13;
+            LabelRUBLost.Text = "рублей";
             // 
             // TextBoxLost
             // 
@@ -191,19 +191,19 @@
             TextBoxLost.Text = "0";
             TextBoxLost.TextChanged += TextBoxLost_TextChanged;
             // 
-            // labelPercent
+            // LabelRUBLostPercent
             // 
-            labelPercent.AutoSize = true;
-            labelPercent.Location = new Point(345, 256);
-            labelPercent.Name = "labelPercent";
-            labelPercent.Size = new Size(65, 28);
-            labelPercent.TabIndex = 15;
-            labelPercent.Text = "(+0%)";
-            labelPercent.Visible = false;
+            LabelRUBLostPercent.AutoSize = true;
+            LabelRUBLostPercent.Location = new Point(345, 253);
+            LabelRUBLostPercent.Name = "LabelRUBLostPercent";
+            LabelRUBLostPercent.Size = new Size(65, 28);
+            LabelRUBLostPercent.TabIndex = 15;
+            LabelRUBLostPercent.Text = "(+0%)";
+            LabelRUBLostPercent.Visible = false;
             // 
             // PictureBoxKZTUSD
             // 
-            PictureBoxKZTUSD.Location = new Point(12, 112);
+            PictureBoxKZTUSD.Location = new Point(11, 114);
             PictureBoxKZTUSD.Name = "PictureBoxKZTUSD";
             PictureBoxKZTUSD.Size = new Size(30, 30);
             PictureBoxKZTUSD.TabIndex = 16;
@@ -218,40 +218,40 @@
             LabelKZT_USD.TabIndex = 17;
             LabelKZT_USD.Text = "Тенге за доллар - ";
             // 
-            // LabelInput
+            // LabelInputKZT
             // 
-            LabelInput.AutoSize = true;
-            LabelInput.Location = new Point(138, 142);
-            LabelInput.Name = "LabelInput";
-            LabelInput.Size = new Size(46, 28);
-            LabelInput.TabIndex = 18;
-            LabelInput.Text = "(0₸)";
-            LabelInput.Visible = false;
+            LabelInputKZT.AutoSize = true;
+            LabelInputKZT.Location = new Point(138, 142);
+            LabelInputKZT.Name = "LabelInputKZT";
+            LabelInputKZT.Size = new Size(46, 28);
+            LabelInputKZT.TabIndex = 18;
+            LabelInputKZT.Text = "(0₸)";
+            LabelInputKZT.Visible = false;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(442, 303);
-            Controls.Add(LabelInput);
+            Controls.Add(LabelInputKZT);
             Controls.Add(LabelKZT_USD);
             Controls.Add(PictureBoxKZTUSD);
-            Controls.Add(labelPercent);
+            Controls.Add(LabelRUBLostPercent);
             Controls.Add(TextBoxLost);
-            Controls.Add(labelRUB3);
-            Controls.Add(label3);
-            Controls.Add(labelRUB2);
-            Controls.Add(label2);
-            Controls.Add(labelRUB1);
-            Controls.Add(label1);
+            Controls.Add(LabelRUBLost);
+            Controls.Add(LabelTextLost);
+            Controls.Add(LabelRUBOutput);
+            Controls.Add(LabelTextOutput);
+            Controls.Add(LabelRUBInput);
+            Controls.Add(LabelTextInput);
             Controls.Add(TextBoxOutput);
             Controls.Add(TextBoxInput);
             Controls.Add(PictureBoxUSD);
             Controls.Add(PictureBoxKZT);
-            Controls.Add(MainLabel);
+            Controls.Add(LabelCurrencyRates);
             Controls.Add(LabelUSD);
             Controls.Add(LabelKZT);
-            Controls.Add(ButtonGet);
+            Controls.Add(ButtonGetRates);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
@@ -269,24 +269,24 @@
 
         #endregion
 
-        private Button ButtonGet;
+        private Button ButtonGetRates;
         private Label LabelUSD;
         private Label LabelKZT;
-        private Label MainLabel;
+        private Label LabelCurrencyRates;
         private PictureBox PictureBoxKZT;
         private PictureBox PictureBoxUSD;
         private TextBox TextBoxInput;
         private TextBox TextBoxOutput;
-        private Label label1;
-        private Label labelRUB1;
-        private Label label2;
-        private Label labelRUB2;
-        private Label label3;
-        private Label labelRUB3;
+        private Label LabelTextInput;
+        private Label LabelRUBInput;
+        private Label LabelTextOutput;
+        private Label LabelRUBOutput;
+        private Label LabelTextLost;
+        private Label LabelRUBLost;
         private TextBox TextBoxLost;
-        private Label labelPercent;
+        private Label LabelRUBLostPercent;
         private PictureBox PictureBoxKZTUSD;
         private Label LabelKZT_USD;
-        private Label LabelInput;
+        private Label LabelInputKZT;
     }
 }
