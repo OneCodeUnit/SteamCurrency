@@ -10,8 +10,13 @@ namespace SteamCurrencyLib
         public float rate { get; set; }
     }
 
-    public class QiwiJsonRoot
+    public class QiwiJson
     {
         public List<QiwiJsonResult> result { get; set; }
+
+        public QiwiJson()
+        {
+            result = new List<QiwiJsonResult>();
+        }
     }
 }

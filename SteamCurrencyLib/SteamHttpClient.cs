@@ -13,17 +13,33 @@ namespace SteamCurrencyLib
 
         public static SteamJson GetSteamJson(int CurrencyCode, string item = "M4A1-S | Hyper Beast (Factory New)", int gameId = 730)
         {
-            HttpResponseMessage response = Client.GetAsync($"https://steamcommunity.com/market/priceoverview/?country=RU&currency={CurrencyCode}&appid={gameId}&market_hash_name={item}").Result;
+            HttpResponseMessage response;
+            try
+            {
+                response = Client.GetAsync($"https://steamcommunity.com/market/priceoverview/?country=RU&currency={CurrencyCode}&appid={gameId}&market_hash_name={item}").Result;
+            }
+            catch
+            {
+                return new SteamJson();
+            }
             string text = response.Content.ReadAsStringAsync().Result;
             SteamJson json = JsonConvert.DeserializeObject<SteamJson>(text);
             return json;
         }
 
-        public static QiwiJsonRoot GetQiwiJson()
+        public static QiwiJson GetQiwiJson()
         {
-            HttpResponseMessage response = Client.GetAsync("https://edge.qiwi.com/sinap/crossRates").Result;
+            HttpResponseMessage response;
+            try
+            {
+                response = Client.GetAsync("https://edge.qiwi.com/sinap/crossRates").Result;
+            }
+            catch
+            {
+                return new QiwiJson();
+            }
             string text = response.Content.ReadAsStringAsync().Result;
-            QiwiJsonRoot json = JsonConvert.DeserializeObject<QiwiJsonRoot>(text);
+            QiwiJson json = JsonConvert.DeserializeObject<QiwiJson>(text);
             return json;
         }
     }

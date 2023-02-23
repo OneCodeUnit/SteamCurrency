@@ -49,7 +49,7 @@ namespace SteamCurrency
             }
 
             //398 - тенге, 643 - рубли, 840 - доллары, 978 - евро, 156 - юани
-            QiwiJsonRoot jsonQiwi = SteamHttpClient.GetQiwiJson();
+            QiwiJson jsonQiwi = SteamHttpClient.GetQiwiJson();
 
             PictureBoxKZT.Image = Properties.Resources.no_c;
             PictureBoxKZTUSD.Image = Properties.Resources.no_c;
@@ -81,6 +81,19 @@ namespace SteamCurrency
         private void TextBoxInput_TextChanged(object sender, EventArgs e)
         {
             string text = TextBoxInput.Text;
+            RUB_Output = 0;
+            try
+            {
+                Convert.ToSingle(text, CultureInfo.InvariantCulture);
+            }
+            catch
+            {
+                LabelInputKZT.Visible = false;
+                LabelRUBLostPercent.Visible = false;
+                TextBoxOutput.Text = "0";
+                TextBoxLost.Text = "0";
+                return;
+            }
             LabelRUBInput.Text = Program.ChangeEnding(text);
 
             RUB_Input = text.Length == 0 ? 0 : Convert.ToSingle(text, CultureInfo.InvariantCulture);
@@ -92,7 +105,7 @@ namespace SteamCurrency
             TextBoxLost.Text = Math.Round(delta, 2).ToString(CultureInfo.InvariantCulture);
             LabelInputKZT.Visible = true;
             LabelInputKZT.Text = $"(это {RUB_Input / KZT_Qiwi:0.##}₸)";
-        }
+            }
 
         private void TextBoxOutput_TextChanged(object sender, EventArgs e)
         {
@@ -101,17 +114,14 @@ namespace SteamCurrency
 
         private void TextBoxLost_TextChanged(object sender, EventArgs e)
         {
-            if (RUB_Output == 0)
+            if (RUB_Output != 0)
             {
-                LabelRUBLostPercent.Visible = false;
-                return;
+                LabelRUBLost.Text = Program.ChangeEnding(TextBoxLost.Text);
+
+                float percent = 100 - (100 / (RUB_Input / RUB_Output));
+                LabelRUBLostPercent.Visible = true;
+                LabelRUBLostPercent.Text = $"({percent:0.##}%)";
             }
-
-            LabelRUBLost.Text = Program.ChangeEnding(TextBoxLost.Text);
-
-            float percent = 100 - (100 / (RUB_Input / RUB_Output));
-            LabelRUBLostPercent.Visible = true;
-            LabelRUBLostPercent.Text = $"({percent:0.##}%)";
         }
     }
 }
