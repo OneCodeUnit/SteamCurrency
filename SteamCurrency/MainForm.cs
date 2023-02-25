@@ -6,14 +6,31 @@ namespace SteamCurrency
     public partial class MainForm : Form
     {
         float USD_Steam; //Рублей за доллар (Steam)
-        float KZT_Qiwi; //Рублей за тенге (jsonQiwi)
-        float USD_Qiwi; //Тенге за доллар (jsonQiwi)
+        float KZT_Qiwi; //Рублей за тенге (Qiwi)
+        float USD_Qiwi; //Тенге за доллар (Qiwi)
         float RUB_Input; //Рублей до конвертации
         float RUB_Output; //Рублей после конвертации
 
         public MainForm()
         {
             InitializeComponent();
+            USD_Steam = Properties.Settings.Default.USD_Steam;
+            KZT_Qiwi = Properties.Settings.Default.KZT_Qiwi;
+            USD_Qiwi = Properties.Settings.Default.USD_Qiwi;
+
+            if (USD_Steam != 0 && USD_Qiwi != 0 && KZT_Qiwi != 0)
+            {
+                LabelUSD.Text = "Доллар - " + Math.Round(USD_Steam, 4).ToString(CultureInfo.InvariantCulture);
+                LabelKZT.Text = "Тенге - " + Math.Round(KZT_Qiwi, 4).ToString(CultureInfo.InvariantCulture);
+                LabelKZT_USD.Text = "Тенге за доллар - " + Math.Round(USD_Qiwi, 2).ToString(CultureInfo.InvariantCulture);
+
+                PictureBoxUSD.Image = Properties.Resources.warn_c;
+                PictureBoxKZT.Image = Properties.Resources.warn_c;
+                PictureBoxKZTUSD.Image = Properties.Resources.warn_c;
+
+                TextBoxInput.Enabled = true;
+            }
+
             ButtonGetRates.Focus();
         }
 
@@ -43,6 +60,7 @@ namespace SteamCurrency
                 float steamRUB = Convert.ToSingle(rawRUB, new CultureInfo("ru-RU"));
                 USD_Steam = steamRUB / steamUSD;
 
+                Properties.Settings.Default["USD_Steam"] = USD_Steam;
                 LabelUSD.Text = "Доллар - " + Math.Round(USD_Steam, 4).ToString(CultureInfo.InvariantCulture);
                 PictureBoxUSD.Image = Properties.Resources.yes_c;
                 TextBoxInput.Enabled = true;
@@ -59,6 +77,7 @@ namespace SteamCurrency
                 {
                     KZT_Qiwi = rateIter.rate;
 
+                    Properties.Settings.Default["KZT_Qiwi"] = KZT_Qiwi;
                     LabelKZT.Text = "Тенге - " + Math.Round(KZT_Qiwi, 4).ToString(CultureInfo.InvariantCulture);
                     PictureBoxKZT.Image = Properties.Resources.yes_c;
                     TextBoxInput.Enabled = true;
@@ -67,12 +86,14 @@ namespace SteamCurrency
                 {
                     USD_Qiwi = rateIter.rate;
 
+                    Properties.Settings.Default["USD_Qiwi"] = USD_Qiwi;
                     LabelKZT_USD.Text = "Тенге за доллар - " + Math.Round(USD_Qiwi, 2).ToString(CultureInfo.InvariantCulture);
                     PictureBoxKZTUSD.Image = Properties.Resources.yes_c;
                     TextBoxInput.Enabled = true;
                 }
             }
 
+            Properties.Settings.Default.Save();
             ButtonGetRates.Enabled = true;
             ButtonGetRates.Text = "Обновить";
             TextBoxInput.Focus();
