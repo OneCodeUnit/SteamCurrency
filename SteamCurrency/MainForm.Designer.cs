@@ -47,7 +47,9 @@
             LabelRUBLostPercent = new Label();
             PictureBoxKZTUSD = new PictureBox();
             LabelKZT_USD = new Label();
-            LabelInputKZT = new Label();
+            LabelKZTInput = new Label();
+            TextBoxInputKZT = new TextBox();
+            LabelTextSend = new Label();
             ((System.ComponentModel.ISupportInitialize)PictureBoxKZT).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureBoxUSD).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureBoxKZTUSD).BeginInit();
@@ -60,7 +62,7 @@
             ButtonGetRates.Name = "ButtonGetRates";
             ButtonGetRates.Size = new Size(135, 40);
             ButtonGetRates.TabIndex = 0;
-            ButtonGetRates.Text = "Получить";
+            ButtonGetRates.Text = "Узнать";
             ButtonGetRates.UseVisualStyleBackColor = true;
             ButtonGetRates.Click += ButtonGet_Click;
             // 
@@ -119,7 +121,7 @@
             // 
             // TextBoxOutput
             // 
-            TextBoxOutput.Location = new Point(138, 213);
+            TextBoxOutput.Location = new Point(138, 253);
             TextBoxOutput.Name = "TextBoxOutput";
             TextBoxOutput.ReadOnly = true;
             TextBoxOutput.Size = new Size(125, 34);
@@ -148,7 +150,7 @@
             // LabelTextOutput
             // 
             LabelTextOutput.AutoSize = true;
-            LabelTextOutput.Location = new Point(11, 213);
+            LabelTextOutput.Location = new Point(11, 253);
             LabelTextOutput.Name = "LabelTextOutput";
             LabelTextOutput.Size = new Size(95, 28);
             LabelTextOutput.TabIndex = 10;
@@ -157,7 +159,7 @@
             // LabelRUBOutput
             // 
             LabelRUBOutput.AutoSize = true;
-            LabelRUBOutput.Location = new Point(269, 213);
+            LabelRUBOutput.Location = new Point(269, 253);
             LabelRUBOutput.Name = "LabelRUBOutput";
             LabelRUBOutput.Size = new Size(79, 28);
             LabelRUBOutput.TabIndex = 11;
@@ -166,7 +168,7 @@
             // LabelTextLost
             // 
             LabelTextLost.AutoSize = true;
-            LabelTextLost.Location = new Point(11, 253);
+            LabelTextLost.Location = new Point(11, 293);
             LabelTextLost.Name = "LabelTextLost";
             LabelTextLost.Size = new Size(109, 28);
             LabelTextLost.TabIndex = 12;
@@ -175,7 +177,7 @@
             // LabelRUBLost
             // 
             LabelRUBLost.AutoSize = true;
-            LabelRUBLost.Location = new Point(269, 253);
+            LabelRUBLost.Location = new Point(269, 293);
             LabelRUBLost.Name = "LabelRUBLost";
             LabelRUBLost.Size = new Size(79, 28);
             LabelRUBLost.TabIndex = 13;
@@ -183,7 +185,7 @@
             // 
             // TextBoxLost
             // 
-            TextBoxLost.Location = new Point(138, 253);
+            TextBoxLost.Location = new Point(138, 293);
             TextBoxLost.Name = "TextBoxLost";
             TextBoxLost.ReadOnly = true;
             TextBoxLost.Size = new Size(125, 34);
@@ -194,7 +196,7 @@
             // LabelRUBLostPercent
             // 
             LabelRUBLostPercent.AutoSize = true;
-            LabelRUBLostPercent.Location = new Point(345, 253);
+            LabelRUBLostPercent.Location = new Point(354, 293);
             LabelRUBLostPercent.Name = "LabelRUBLostPercent";
             LabelRUBLostPercent.Size = new Size(65, 28);
             LabelRUBLostPercent.TabIndex = 15;
@@ -218,22 +220,41 @@
             LabelKZT_USD.TabIndex = 17;
             LabelKZT_USD.Text = "Тенге за доллар - ";
             // 
-            // LabelInputKZT
+            // LabelKZTInput
             // 
-            LabelInputKZT.AutoSize = true;
-            LabelInputKZT.Location = new Point(138, 142);
-            LabelInputKZT.Name = "LabelInputKZT";
-            LabelInputKZT.Size = new Size(46, 28);
-            LabelInputKZT.TabIndex = 18;
-            LabelInputKZT.Text = "(0₸)";
-            LabelInputKZT.Visible = false;
+            LabelKZTInput.AutoSize = true;
+            LabelKZTInput.Location = new Point(269, 213);
+            LabelKZTInput.Name = "LabelKZTInput";
+            LabelKZTInput.Size = new Size(60, 28);
+            LabelKZTInput.TabIndex = 19;
+            LabelKZTInput.Text = "тенге";
+            // 
+            // TextBoxInputKZT
+            // 
+            TextBoxInputKZT.Location = new Point(138, 213);
+            TextBoxInputKZT.Name = "TextBoxInputKZT";
+            TextBoxInputKZT.ReadOnly = true;
+            TextBoxInputKZT.Size = new Size(125, 34);
+            TextBoxInputKZT.TabIndex = 20;
+            TextBoxInputKZT.Text = "0";
+            // 
+            // LabelTextSend
+            // 
+            LabelTextSend.AutoSize = true;
+            LabelTextSend.Location = new Point(48, 213);
+            LabelTextSend.Name = "LabelTextSend";
+            LabelTextSend.Size = new Size(47, 28);
+            LabelTextSend.TabIndex = 21;
+            LabelTextSend.Text = "или";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(442, 303);
-            Controls.Add(LabelInputKZT);
+            ClientSize = new Size(442, 339);
+            Controls.Add(LabelTextSend);
+            Controls.Add(TextBoxInputKZT);
+            Controls.Add(LabelKZTInput);
             Controls.Add(LabelKZT_USD);
             Controls.Add(PictureBoxKZTUSD);
             Controls.Add(LabelRUBLostPercent);
@@ -256,8 +277,8 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             MaximizeBox = false;
-            MaximumSize = new Size(460, 350);
-            MinimumSize = new Size(460, 350);
+            MaximumSize = new Size(460, 386);
+            MinimumSize = new Size(460, 386);
             Name = "MainForm";
             Text = "Steam Currency by OliveWizard";
             ((System.ComponentModel.ISupportInitialize)PictureBoxKZT).EndInit();
@@ -287,6 +308,8 @@
         private Label LabelRUBLostPercent;
         private PictureBox PictureBoxKZTUSD;
         private Label LabelKZT_USD;
-        private Label LabelInputKZT;
+        private Label LabelKZTInput;
+        private TextBox TextBoxInputKZT;
+        private Label LabelTextSend;
     }
 }

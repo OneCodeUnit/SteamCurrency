@@ -13,10 +13,15 @@
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <AssemblyVersion>2.0.2</AssemblyVersion>
     <FileVersion>2.0.2</FileVersion>
-    <Version>$(VersionPrefix)2.0.2</Version>
+    <Version>$(VersionPrefix)2.0.3</Version>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/OneCodeUnit/SteamCurrency</RepositoryUrl>
     <NeutralLanguage>ru</NeutralLanguage>
+    <Title>Steam Cyrrency Calculator</Title>
+    <Authors>OliveWizard</Authors>
+    <Description>Калькулятор пополнения Steam через Qiwi</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>Steam; Currency; Calculator; Currency rate; Qiwi</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -37,6 +42,13 @@
 
   <ItemGroup>
     <Content Include="Flag.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

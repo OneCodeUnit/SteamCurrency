@@ -1,5 +1,6 @@
 ﻿using SteamCurrencyLib;
 using System.Globalization;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SteamCurrency
 {
@@ -28,7 +29,9 @@ namespace SteamCurrency
                 PictureBoxKZT.Image = Properties.Resources.warn_c;
                 PictureBoxKZTUSD.Image = Properties.Resources.warn_c;
 
+                ButtonGetRates.Text = "Обновить";
                 TextBoxInput.Enabled = true;
+                CalcPercent();
             }
 
             ButtonGetRates.Focus();
@@ -94,6 +97,7 @@ namespace SteamCurrency
             }
 
             Properties.Settings.Default.Save();
+            CalcPercent();
             ButtonGetRates.Enabled = true;
             ButtonGetRates.Text = "Обновить";
             TextBoxInput.Focus();
@@ -109,13 +113,16 @@ namespace SteamCurrency
             }
             catch
             {
-                LabelInputKZT.Visible = false;
-                LabelRUBLostPercent.Visible = false;
+                TextBoxInputKZT.Text = "0";
                 TextBoxOutput.Text = "0";
                 TextBoxLost.Text = "0";
                 return;
             }
             LabelRUBInput.Text = Program.ChangeEnding(text);
+            if (text.Contains(','))
+            {
+                text = text.Replace(',', '.');
+            }
 
             RUB_Input = text.Length == 0 ? 0 : Convert.ToSingle(text, CultureInfo.InvariantCulture);
 
@@ -124,9 +131,8 @@ namespace SteamCurrency
             TextBoxOutput.Text = Math.Round(RUB_Output, 2).ToString(CultureInfo.InvariantCulture);
             float delta = RUB_Input - RUB_Output;
             TextBoxLost.Text = Math.Round(delta, 2).ToString(CultureInfo.InvariantCulture);
-            LabelInputKZT.Visible = true;
-            LabelInputKZT.Text = $"(это {RUB_Input / KZT_Qiwi:0.##}₸)";
-            }
+            TextBoxInputKZT.Text = Math.Round(RUB_Input / KZT_Qiwi, 2, MidpointRounding.ToNegativeInfinity).ToString(CultureInfo.InvariantCulture);
+        }
 
         private void TextBoxOutput_TextChanged(object sender, EventArgs e)
         {
@@ -138,11 +144,17 @@ namespace SteamCurrency
             if (RUB_Output != 0)
             {
                 LabelRUBLost.Text = Program.ChangeEnding(TextBoxLost.Text);
-
-                float percent = 100 - (100 / (RUB_Input / RUB_Output));
-                LabelRUBLostPercent.Visible = true;
-                LabelRUBLostPercent.Text = $"({percent:0.##}%)";
             }
         }
+
+        private void CalcPercent()
+        {
+            float RUB_Output = ((100 / KZT_Qiwi) / (USD_Qiwi + 0.0415f * USD_Qiwi)) * USD_Steam;
+            float percent = 100 - (100 / (100 / RUB_Output));
+            LabelRUBLostPercent.Visible = true;
+            LabelRUBLostPercent.Text = $"({percent:0.##}%)";
+        }
+
+
     }
 }
