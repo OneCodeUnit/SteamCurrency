@@ -9,8 +9,7 @@
 
 Для Windows 7 и 8.1 подойдёт только .Net 6, а для Windows 10 (версия 1607+) и 11 (версия 22000+) можно установить .Net 7.
 
-## Загрузка
-Из [GitHub](https://github.com/OneCodeUnit/SteamCurrency/releases/latest) или [Google Drive](https://drive.google.com/drive/folders/1YjrkJMSdJtApJx7BskjxrvCVR7GunfcN?usp=sharing) (доступны версии, не требующие .Net).
+[Скачать программу](https://github.com/OneCodeUnit/SteamCurrency/releases/latest)
 
 ## Работа программы
 Программа через Rest-запросы узнаёт у Steam (окольными путями) и Qiwi (через API) курсы валют и производит вычисления суммы, которая поступит, и суммы, которую "съест" конвертация. Из-за способа получения курсов у Steam, присутствует погрешность на уровне 1 рубля.
