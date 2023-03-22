@@ -1,5 +1,6 @@
 namespace SteamCurrencyLib
 {
+#pragma warning disable IDE1006, CA1707
     public class SteamJson
     {
         public bool success { get; set; }
@@ -15,4 +16,5 @@ namespace SteamCurrencyLib
             median_price = string.Empty;
         }
     }
+#pragma warning restore IDE1006, CA1707
 }

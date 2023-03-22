@@ -50,6 +50,7 @@
             LabelKZTInput = new Label();
             TextBoxInputKZT = new TextBox();
             LabelTextSend = new Label();
+            ButtonReverse = new Button();
             ((System.ComponentModel.ISupportInitialize)PictureBoxKZT).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureBoxUSD).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureBoxKZTUSD).BeginInit();
@@ -69,25 +70,25 @@
             // LabelUSD
             // 
             LabelUSD.AutoSize = true;
-            LabelUSD.Location = new Point(46, 76);
+            LabelUSD.Location = new Point(46, 94);
             LabelUSD.Name = "LabelUSD";
-            LabelUSD.Size = new Size(100, 28);
+            LabelUSD.Size = new Size(192, 28);
             LabelUSD.TabIndex = 1;
-            LabelUSD.Text = "Доллар - ";
+            LabelUSD.Text = "Рублей за доллар - ";
             // 
             // LabelKZT
             // 
             LabelKZT.AutoSize = true;
-            LabelKZT.Location = new Point(48, 40);
+            LabelKZT.Location = new Point(48, 58);
             LabelKZT.Name = "LabelKZT";
-            LabelKZT.Size = new Size(80, 28);
+            LabelKZT.Size = new Size(189, 28);
             LabelKZT.TabIndex = 2;
-            LabelKZT.Text = "Тенге - ";
+            LabelKZT.Text = "Рублей за тенге     - ";
             // 
             // LabelCurrencyRates
             // 
             LabelCurrencyRates.AutoSize = true;
-            LabelCurrencyRates.Location = new Point(11, 9);
+            LabelCurrencyRates.Location = new Point(11, 19);
             LabelCurrencyRates.Name = "LabelCurrencyRates";
             LabelCurrencyRates.Size = new Size(134, 28);
             LabelCurrencyRates.TabIndex = 3;
@@ -95,7 +96,7 @@
             // 
             // PictureBoxKZT
             // 
-            PictureBoxKZT.Location = new Point(11, 40);
+            PictureBoxKZT.Location = new Point(11, 58);
             PictureBoxKZT.Name = "PictureBoxKZT";
             PictureBoxKZT.Size = new Size(30, 30);
             PictureBoxKZT.TabIndex = 4;
@@ -103,7 +104,7 @@
             // 
             // PictureBoxUSD
             // 
-            PictureBoxUSD.Location = new Point(11, 76);
+            PictureBoxUSD.Location = new Point(11, 94);
             PictureBoxUSD.Name = "PictureBoxUSD";
             PictureBoxUSD.Size = new Size(30, 30);
             PictureBoxUSD.TabIndex = 5;
@@ -205,7 +206,7 @@
             // 
             // PictureBoxKZTUSD
             // 
-            PictureBoxKZTUSD.Location = new Point(11, 114);
+            PictureBoxKZTUSD.Location = new Point(11, 132);
             PictureBoxKZTUSD.Name = "PictureBoxKZTUSD";
             PictureBoxKZTUSD.Size = new Size(30, 30);
             PictureBoxKZTUSD.TabIndex = 16;
@@ -214,11 +215,11 @@
             // LabelKZT_USD
             // 
             LabelKZT_USD.AutoSize = true;
-            LabelKZT_USD.Location = new Point(48, 114);
+            LabelKZT_USD.Location = new Point(48, 132);
             LabelKZT_USD.Name = "LabelKZT_USD";
-            LabelKZT_USD.Size = new Size(176, 28);
+            LabelKZT_USD.Size = new Size(191, 28);
             LabelKZT_USD.TabIndex = 17;
-            LabelKZT_USD.Text = "Тенге за доллар - ";
+            LabelKZT_USD.Text = "Тенге за доллар    - ";
             // 
             // LabelKZTInput
             // 
@@ -247,11 +248,23 @@
             LabelTextSend.TabIndex = 21;
             LabelTextSend.Text = "или";
             // 
+            // ButtonReverse
+            // 
+            ButtonReverse.BackgroundImageLayout = ImageLayout.None;
+            ButtonReverse.Image = Properties.Resources.rev_c;
+            ButtonReverse.Location = new Point(354, 255);
+            ButtonReverse.Name = "ButtonReverse";
+            ButtonReverse.Size = new Size(30, 30);
+            ButtonReverse.TabIndex = 22;
+            ButtonReverse.UseVisualStyleBackColor = true;
+            ButtonReverse.Click += ButtonReverse_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(442, 339);
+            Controls.Add(ButtonReverse);
             Controls.Add(LabelTextSend);
             Controls.Add(TextBoxInputKZT);
             Controls.Add(LabelKZTInput);
@@ -280,7 +293,7 @@
             MaximumSize = new Size(460, 386);
             MinimumSize = new Size(460, 386);
             Name = "MainForm";
-            Text = "Steam Currency by OliveWizard";
+            Text = "Steam Currency от OliveWizard";
             ((System.ComponentModel.ISupportInitialize)PictureBoxKZT).EndInit();
             ((System.ComponentModel.ISupportInitialize)PictureBoxUSD).EndInit();
             ((System.ComponentModel.ISupportInitialize)PictureBoxKZTUSD).EndInit();
@@ -311,5 +324,6 @@
         private Label LabelKZTInput;
         private TextBox TextBoxInputKZT;
         private Label LabelTextSend;
+        private Button ButtonReverse;
     }
 }

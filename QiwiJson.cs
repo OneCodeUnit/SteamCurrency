@@ -1,7 +1,6 @@
-using System.Collections.Generic;
-
 namespace SteamCurrencyLib
 {
+#pragma warning disable IDE1006, CS8618
     public class QiwiJsonResult
     {
         public string set { get; set; }
@@ -19,4 +18,5 @@ namespace SteamCurrencyLib
             result = new List<QiwiJsonResult>();
         }
     }
+#pragma warning restore IDE1006, CS8618
 }

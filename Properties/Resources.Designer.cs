@@ -73,6 +73,26 @@ namespace SteamCurrency.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap rev_c {
+            get {
+                object obj = ResourceManager.GetObject("rev_c", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap rev_c2 {
+            get {
+                object obj = ResourceManager.GetObject("rev_c2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap wait_c {
             get {
                 object obj = ResourceManager.GetObject("wait_c", resourceCulture);

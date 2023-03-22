@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
-using System.Net.Http;
 
 namespace SteamCurrencyLib
 {
+#pragma warning disable CS8603, CS8600
     public class SteamHttpClient
     {
-        private static readonly HttpClient Client = new HttpClient();
+        private static readonly HttpClient Client = new();
         static SteamHttpClient()
         {
             Client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:110.0) Gecko/20100101 Firefox/110.0");
@@ -43,4 +43,5 @@ namespace SteamCurrencyLib
             return json;
         }
     }
+#pragma warning restore CS8603, CS8600
 }
