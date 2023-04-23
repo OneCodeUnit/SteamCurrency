@@ -73,6 +73,16 @@ namespace SteamCurrency.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap qiwi_c {
+            get {
+                object obj = ResourceManager.GetObject("qiwi_c", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap rev_c {
             get {
                 object obj = ResourceManager.GetObject("rev_c", resourceCulture);
@@ -106,6 +116,16 @@ namespace SteamCurrency.Properties {
         public static System.Drawing.Bitmap warn_c {
             get {
                 object obj = ResourceManager.GetObject("warn_c", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap wm_c {
+            get {
+                object obj = ResourceManager.GetObject("wm_c", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -58,5 +58,17 @@ namespace SteamCurrency.Properties {
                 this["USD_Qiwi"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float USD_Web {
+            get {
+                return ((float)(this["USD_Web"]));
+            }
+            set {
+                this["USD_Web"] = value;
+            }
+        }
     }
 }

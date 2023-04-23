@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace SteamCurrencyLib
 {
@@ -41,6 +43,25 @@ namespace SteamCurrencyLib
             string text = response.Content.ReadAsStringAsync().Result;
             QiwiJson json = JsonConvert.DeserializeObject<QiwiJson>(text);
             return json;
+        }
+
+        public static float GetWebMoneyRate()
+        {
+            HttpResponseMessage response;
+            try
+            {
+                response = Client.GetAsync("https://exchanger.web.money/asp/wmlist.asp?exchtype=118").Result;
+            }
+            catch
+            {
+                return -1;
+            }
+            string text = response.Content.ReadAsStringAsync().Result;
+            Regex regex = new (@"<span>([\d,]+)", RegexOptions.Compiled);
+            string match = regex.Match(text).Groups[1].ToString();
+            match = match.Replace(',', '.');
+            float rate = Convert.ToSingle(match, CultureInfo.InvariantCulture);
+            return rate;
         }
     }
 #pragma warning restore CS8603, CS8600
