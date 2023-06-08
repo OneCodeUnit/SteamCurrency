@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -11,18 +11,19 @@
     <AnalysisLevel>latest-recommended</AnalysisLevel>
     <ApplicationIcon>Flag.ico</ApplicationIcon>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <AssemblyVersion>2.1.0</AssemblyVersion>
-    <FileVersion>2.1.0</FileVersion>
-    <Version>$(VersionPrefix)2.1.0</Version>
+    <AssemblyVersion>3.0.0</AssemblyVersion>
+    <FileVersion>3.0.0</FileVersion>
+    <Version>$(VersionPrefix)3.0.0</Version>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/OneCodeUnit/SteamCurrency</RepositoryUrl>
     <NeutralLanguage>ru</NeutralLanguage>
-    <Title>Steam Cyrrency Calculator</Title>
+    <Title>Steam Currency Calculator</Title>
     <Authors>OliveWizard</Authors>
     <Description>Калькулятор пополнения Steam через Qiwi</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags>Steam; Currency; Calculator; Currency rate; Qiwi</PackageTags>
-    <PackageId>SteamCyrrencyCalculator</PackageId>
+    <PackageTags>Steam; Currency; Calculator; Currency rate; Qiwi; WebMoney</PackageTags>
+    <PackageId>SteamCurrencyCalculator</PackageId>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -42,11 +43,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Flag.ico" />
+    <Compile Remove="SteamCurrencyLib\**" />
+    <EmbeddedResource Remove="SteamCurrencyLib\**" />
+    <None Remove="SteamCurrencyLib\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <Content Include="Flag.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -86,6 +89,10 @@
 
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="SteamCurrencyLib\SteamCurrencyLib.csproj" />
   </ItemGroup>
 
 </Project>
