@@ -1,17 +1,16 @@
 Программа, которая сможет ответить на вопрос "Сколько придёт мне на Steam, если я отправлю себе сейчас через Qiwi или WebMoney?"
 
-## Системные требования
-Для запуска требуется [.Net](https://dotnet.microsoft.com/en-us/download).
-Он существует в трёх вариантах:
-+ SDK - запуск и разработка приложений.
-+ Runtime - только запуск приложений.
-+ Desktop Runtime - только запуск настольных приложений для Windows.
+## Системные требования (основная версия программы)
+Для запуска требуется [.Net 7](https://dotnet.microsoft.com/en-us/download). Подойдёт любой вариант: SDK, Runtime или Desktop Runtime.
 
-Для Windows 7 и 8.1 подойдёт только .Net 6, а для Windows 10 (версия 1607+) и 11 (версия 22000+) можно установить .Net 7. Начиная с версии 3.0 программы поддерживается только .Net 7 и Windows 10+
+Поддерживается Windows 10 (версия 1607) и новее.
 
-[Скачать программу](https://github.com/OneCodeUnit/SteamCurrency/releases/latest)
+[Скачать программу](https://github.com/OneCodeUnit/SteamCurrency/releases/latest) (загружать SteamCurrency.exe)
 
-[Скачать старую версию для .Net 6 и Windows 7+](https://github.com/OneCodeUnit/SteamCurrency/releases/tag/v2.1.0)
+## Системные требования (legacy версия программы)
+Если у вас Windows 10 (версия 1903) и новее, то ничего дополнительного не потребуется. Если старше до Windows 7 включительно, то для запуска требуется [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework). Подойдёт вариант Runtime.
+
+[Скачать программу](https://github.com/OneCodeUnit/SteamCurrency/releases/latest) (загружать SteamCurrencyLegacy.zip)
 
 ## Работа программы
 Программа через Rest-запросы узнаёт у Steam, WebMoney (окольными путями) и Qiwi (через API) курсы валют и производит вычисления суммы, которая поступит, и суммы, которую "съест" конвертация. Из-за способа получения курсов у Steam, присутствует погрешность на уровне 1 рубля.
