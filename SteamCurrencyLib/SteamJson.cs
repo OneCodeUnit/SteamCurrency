@@ -22,7 +22,7 @@ namespace SteamCurrencyLib
         }
 
         // 1 - доллары, 5 - рубли (https://partner.steamgames.com/doc/store/pricing/currencies)
-        public SteamJson GetData(int CurrencyCode, string item = "M4A1-S | Hyper Beast (Factory New)", int gameId = 730)
+        public static SteamJson GetData(int CurrencyCode, string item = "M4A1-S | Hyper Beast (Factory New)", int gameId = 730)
         {
             HttpResponseMessage response;
             try

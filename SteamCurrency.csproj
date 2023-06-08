@@ -43,8 +43,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="SteamCurrencyLegacy\**" />
     <Compile Remove="SteamCurrencyLib\**" />
+    <EmbeddedResource Remove="SteamCurrencyLegacy\**" />
     <EmbeddedResource Remove="SteamCurrencyLib\**" />
+    <None Remove="SteamCurrencyLegacy\**" />
     <None Remove="SteamCurrencyLib\**" />
   </ItemGroup>
 
