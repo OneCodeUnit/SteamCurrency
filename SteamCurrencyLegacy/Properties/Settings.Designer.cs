@@ -70,5 +70,17 @@ namespace SteamCurrencyLegacy.Properties {
                 this["USD_Web"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float USD_Web_Real {
+            get {
+                return ((float)(this["USD_Web_Real"]));
+            }
+            set {
+                this["USD_Web_Real"] = value;
+            }
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace SteamCurrencyLib
 {
-    internal class SCHttpClient
+    internal sealed class SCHttpClient
     {
         internal static readonly HttpClient Client = new HttpClient();
         static SCHttpClient()

@@ -14,6 +14,8 @@ namespace SteamCurrency
         // Анализ последних цифр числа
         internal static string ChangeEnding(string text)
         {
+            if (text == "NaN")
+                text = "0";
             // Убираем точку и запятую для анализа
             string textAnalyze;
             if (text.Contains(','))

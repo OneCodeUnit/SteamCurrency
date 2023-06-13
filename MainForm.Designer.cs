@@ -54,6 +54,9 @@
             PictureBoxUSDWeb = new PictureBox();
             LabelUSDWeb = new Label();
             ButtonTargetSystem = new Button();
+            LabelTextSendWeb = new Label();
+            LabelUsdInputWeb = new Label();
+            TextBoxInputUsdWeb = new TextBox();
             ((System.ComponentModel.ISupportInitialize)PictureBoxKZT).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureBoxUSD).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureBoxKZTUSD).BeginInit();
@@ -150,7 +153,7 @@
             LabelRUBInput.Name = "LabelRUBInput";
             LabelRUBInput.Size = new Size(79, 28);
             LabelRUBInput.TabIndex = 9;
-            LabelRUBInput.Text = "рублей";
+            LabelRUBInput.Text = "руб.";
             // 
             // LabelTextOutput
             // 
@@ -168,7 +171,7 @@
             LabelRUBOutput.Name = "LabelRUBOutput";
             LabelRUBOutput.Size = new Size(79, 28);
             LabelRUBOutput.TabIndex = 11;
-            LabelRUBOutput.Text = "рублей";
+            LabelRUBOutput.Text = "руб.";
             // 
             // LabelTextLost
             // 
@@ -186,7 +189,7 @@
             LabelRUBLost.Name = "LabelRUBLost";
             LabelRUBLost.Size = new Size(79, 28);
             LabelRUBLost.TabIndex = 13;
-            LabelRUBLost.Text = "рублей";
+            LabelRUBLost.Text = "руб.";
             // 
             // TextBoxLost
             // 
@@ -276,9 +279,9 @@
             LabelUSDWeb.AutoSize = true;
             LabelUSDWeb.Location = new Point(46, 129);
             LabelUSDWeb.Name = "LabelUSDWeb";
-            LabelUSDWeb.Size = new Size(242, 28);
+            LabelUSDWeb.Size = new Size(324, 28);
             LabelUSDWeb.TabIndex = 23;
-            LabelUSDWeb.Text = "Рублей за доллар (P2P) - ";
+            LabelUSDWeb.Text = "Рублей за доллар (справочный) - ";
             // 
             // ButtonTargetSystem
             // 
@@ -290,6 +293,36 @@
             ButtonTargetSystem.TabIndex = 25;
             ButtonTargetSystem.UseVisualStyleBackColor = true;
             ButtonTargetSystem.Click += ButtonTargetSystem_Click;
+            // 
+            // LabelTextSendWeb
+            // 
+            LabelTextSendWeb.AutoSize = true;
+            LabelTextSendWeb.Location = new Point(11, 247);
+            LabelTextSendWeb.Name = "LabelTextSendWeb";
+            LabelTextSendWeb.Size = new Size(108, 28);
+            LabelTextSendWeb.TabIndex = 26;
+            LabelTextSendWeb.Text = "по курсу $";
+            LabelTextSendWeb.Visible = false;
+            // 
+            // LabelUsdInputWeb
+            // 
+            LabelUsdInputWeb.AutoSize = true;
+            LabelUsdInputWeb.Location = new Point(269, 247);
+            LabelUsdInputWeb.Name = "LabelUsdInputWeb";
+            LabelUsdInputWeb.Size = new Size(79, 28);
+            LabelUsdInputWeb.TabIndex = 27;
+            LabelUsdInputWeb.Text = "руб.";
+            LabelUsdInputWeb.Visible = false;
+            // 
+            // TextBoxInputUsdWeb
+            // 
+            TextBoxInputUsdWeb.Location = new Point(138, 247);
+            TextBoxInputUsdWeb.Name = "TextBoxInputUsdWeb";
+            TextBoxInputUsdWeb.Size = new Size(125, 34);
+            TextBoxInputUsdWeb.TabIndex = 28;
+            TextBoxInputUsdWeb.Text = "0";
+            TextBoxInputUsdWeb.Visible = false;
+            TextBoxInputUsdWeb.TextChanged += TextBoxInputUsdWeb_TextChanged;
             // 
             // MainForm
             // 
@@ -321,6 +354,9 @@
             Controls.Add(LabelUSD);
             Controls.Add(LabelKZT);
             Controls.Add(ButtonGetRates);
+            Controls.Add(LabelTextSendWeb);
+            Controls.Add(LabelUsdInputWeb);
+            Controls.Add(TextBoxInputUsdWeb);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
@@ -364,5 +400,8 @@
         private PictureBox PictureBoxUSDWeb;
         private Label LabelUSDWeb;
         private Button ButtonTargetSystem;
+        private Label LabelTextSendWeb;
+        private Label LabelUsdInputWeb;
+        private TextBox TextBoxInputUsdWeb;
     }
 }
