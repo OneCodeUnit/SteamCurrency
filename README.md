@@ -16,6 +16,8 @@
 
 ## [Скачать программу](https://github.com/OneCodeUnit/SteamCurrency/releases/latest)
 
+## [Как пополнять](https://github.com/OneCodeUnit/SteamCurrency/wiki/Оглавление)
+
 ## Работа программы
 Программа через Rest-запросы узнаёт у Steam, WebMoney (окольными путями) и Qiwi (через API) курсы валют и производит вычисления суммы, которая поступит, и суммы, которую "съест" конвертация.
 
