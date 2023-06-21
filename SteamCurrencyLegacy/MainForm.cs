@@ -166,6 +166,14 @@ namespace SteamCurrencyLegacy
                 {
                     text = text.Replace(',', '.');
                 }
+                if (text.Contains('б'))
+                {
+                    text = text.Replace('б', '.');
+                }
+                if (text.Contains('ю'))
+                {
+                    text = text.Replace('ю', '.');
+                }
 
                 RUB_Input = text.Length == 0 ? 0 : Convert.ToSingle(text, CultureInfo.InvariantCulture);
 
@@ -208,6 +216,14 @@ namespace SteamCurrencyLegacy
                 if (text.Contains(','))
                 {
                     text = text.Replace(',', '.');
+                }
+                if (text.Contains('б'))
+                {
+                    text = text.Replace('б', '.');
+                }
+                if (text.Contains('ю'))
+                {
+                    text = text.Replace('ю', '.');
                 }
 
                 RUB_Output = text.Length == 0 ? 0 : Convert.ToSingle(text, CultureInfo.InvariantCulture);
@@ -323,6 +339,14 @@ namespace SteamCurrencyLegacy
             if (text.Contains(','))
             {
                 text = text.Replace(',', '.');
+            }
+            if (text.Contains('б'))
+            {
+                text = text.Replace('б', '.');
+            }
+            if (text.Contains('ю'))
+            {
+                text = text.Replace('ю', '.');
             }
 
             USD_Web_Real = text.Length == 0 ? 0 : Convert.ToSingle(text, CultureInfo.InvariantCulture);

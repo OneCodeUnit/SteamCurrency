@@ -30,6 +30,14 @@ namespace SteamCurrency
             {
                 text = text[0..text.IndexOf('.')];
             }
+            if (text.Contains('-'))
+            {
+                text = text.Replace("-", string.Empty);
+            }
+            if (text.Contains('+'))
+            {
+                text = text.Replace("-", string.Empty);
+            }
 
             // Если число длинне двух символов, то обрезаем
             textAnalyze = text.Length switch
@@ -38,8 +46,15 @@ namespace SteamCurrency
                 0 => "0",
                 _ => text
             };
-
-            int number = Convert.ToInt32(textAnalyze, CultureInfo.InvariantCulture);
+            int number;
+            try
+            {
+                number = Convert.ToInt32(textAnalyze, CultureInfo.InvariantCulture);
+            }
+            catch
+            {
+                number = 0;
+            }
 
             // Выбор надписи в зависимости от числа
             if (number is >= 5 and <= 20)
