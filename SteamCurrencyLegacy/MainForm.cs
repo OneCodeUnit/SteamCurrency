@@ -267,7 +267,7 @@ namespace SteamCurrencyLegacy
         private void CalcPercent()
         {
             float RUB_Output, percent;
-            RUB_Output = PaySystem ? (10000 / (RUB_USD_Qiwi * 1.09f)) * RUB_USD_Steam : (10000 / RUB_USD_Web_Real) * 0.82f * RUB_USD_Steam;
+            RUB_Output = PaySystem ? (10000 / RUB_USD_Qiwi) * 0.91f * RUB_USD_Steam : (10000 / RUB_USD_Web_Real) * 0.82f * RUB_USD_Steam;
             percent = 100 - (100 / (10000 / RUB_Output));
             LabelTextLost.Text = percent < 0 ? "Я выиграю" : "Я потеряю";
             LabelRUBLostPercent.Visible = true;
