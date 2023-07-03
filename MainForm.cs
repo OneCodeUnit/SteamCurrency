@@ -5,11 +5,12 @@ namespace SteamCurrency
 {
     public partial class MainForm : Form
     {
-        float USD_Steam; // Рублей за доллар (Steam)
-        float KZT_Qiwi; // Рублей за тенге (Qiwi)
-        float USD_Qiwi; // Тенге за доллар (Qiwi)
-        float USD_Web; // Рублей за доллар (Webmoney)
-        float USD_Web_Real; // Рублей за доллар (Webmoney PtP)
+        float RUB_USD_Steam; // Рублей за доллар (Steam)
+        float KZT_USD_Steam; // Тенге за доллар (Steam)
+        float KZT_USD_Qiwi; // Тенге за доллар (Qiwi)
+        float RUB_USD_Qiwi; // Рублей за доллар (Qiwi)
+        float RUB_USD_Web; // Рублей за доллар (Webmoney)
+        float RUB_USD_Web_Real; // Рублей за доллар (Webmoney PtP)
         float RUB_Input; // Рублей до конвертации
         float RUB_Output; // Рублей после конвертации
 
@@ -19,23 +20,24 @@ namespace SteamCurrency
         public MainForm()
         {
             InitializeComponent();
-            USD_Steam = Properties.Settings.Default.USD_Steam;
-            KZT_Qiwi = Properties.Settings.Default.KZT_Qiwi;
-            USD_Qiwi = Properties.Settings.Default.USD_Qiwi;
-            USD_Web = Properties.Settings.Default.USD_Web;
-            USD_Web_Real = Properties.Settings.Default.USD_Web_Real;
+            RUB_USD_Steam = Properties.Settings.Default.RUB_USD_Steam;
+            KZT_USD_Steam = Properties.Settings.Default.KZT_USD_Steam;
+            KZT_USD_Qiwi = Properties.Settings.Default.KZT_USD_Qiwi;
+            RUB_USD_Qiwi = Properties.Settings.Default.RUB_USD_Qiwi;
+            RUB_USD_Web = Properties.Settings.Default.RUB_USD_Web;
+            RUB_USD_Web_Real = Properties.Settings.Default.RUB_USD_Web_Real;
 
-            if (USD_Steam != 0 && USD_Qiwi != 0 && KZT_Qiwi != 0 && USD_Web != 0)
+            if (RUB_USD_Steam != 0 && KZT_USD_Steam != 0 && KZT_USD_Qiwi != 0 && RUB_USD_Qiwi != 0 && RUB_USD_Web != 0)
             {
-                LabelUSD.Text = $"Рублей за доллар - {Math.Round(USD_Steam, 4)} (Steam)";
-                LabelUSDWeb.Text = $"Рублей за доллар - {Math.Round(USD_Web, 4)} (Webmoney)";
-                LabelKZT.Text = $"Рублей за тенге     - {Math.Round(KZT_Qiwi, 3)} (Qiwi)";
-                LabelKZT_USD.Text = $"Тенге за доллар    - {Math.Round(USD_Qiwi, 2)} (Qiwi)";
+                LabelUSD.Text = $"Рублей за доллар - {Math.Round(RUB_USD_Steam, 4)} (Steam)";
+                LabelUSDWeb.Text = $"Рублей за доллар - {Math.Round(RUB_USD_Web, 4)} (Webmoney)";
+                LabelKZT.Text = $"Рублей за доллар - {Math.Round(RUB_USD_Qiwi, 4)} (Qiwi)";
+                LabelKZT_USD.Text = $"Тенге за доллар    - {Math.Round(KZT_USD_Qiwi, 2)} (Qiwi)";
 
-                if (USD_Web_Real > 0)
-                    TextBoxInputUsdWeb.Text = USD_Web_Real.ToString(CultureInfo.InvariantCulture);
+                if (RUB_USD_Web_Real > 0)
+                    TextBoxInputUsdWeb.Text = RUB_USD_Web_Real.ToString(CultureInfo.InvariantCulture);
                 else
-                    TextBoxInputUsdWeb.Text = USD_Web.ToString(CultureInfo.InvariantCulture);
+                    TextBoxInputUsdWeb.Text = RUB_USD_Web.ToString(CultureInfo.InvariantCulture);
 
                 PictureBoxUSD.Image = Properties.Resources.warn_c;
                 PictureBoxUSDWeb.Image = Properties.Resources.warn_c;
@@ -60,18 +62,29 @@ namespace SteamCurrency
             TextBoxInputUsdWeb.Enabled = false;
 
             PictureBoxUSD.Image = Properties.Resources.wait_c;
-            SteamJson steam = new();
             // Рублей за доллар по курсу стима
-            float usdSteam = steam.GetRate();
+            float usdSteam = SteamJson.GetRate(1, 5);
             if (usdSteam == 0)
             {
                 PictureBoxUSD.Image = Properties.Resources.no_c;
             }
             else
             {
-                USD_Steam = usdSteam;
-                Properties.Settings.Default["USD_Steam"] = USD_Steam;
-                LabelUSD.Text = $"Рублей за доллар - {Math.Round(USD_Steam, 4)} (Steam)";
+                RUB_USD_Steam = usdSteam;
+                Properties.Settings.Default["RUB_USD_Steam"] = RUB_USD_Steam;
+                LabelUSD.Text = $"Рублей за доллар - {Math.Round(RUB_USD_Steam, 4)} (Steam)";
+                PictureBoxUSD.Image = Properties.Resources.yes_c;
+            }
+            // Тенге за доллар по курсу стима
+            float kztSteam = SteamJson.GetRate(1, 37);
+            if (kztSteam == 0)
+            {
+                PictureBoxUSD.Image = Properties.Resources.no_c;
+            }
+            else
+            {
+                KZT_USD_Steam = kztSteam;
+                Properties.Settings.Default["KZT_USD_Steam"] = KZT_USD_Steam;
                 PictureBoxUSD.Image = Properties.Resources.yes_c;
             }
 
@@ -79,17 +92,17 @@ namespace SteamCurrency
             PictureBoxKZTUSD.Image = Properties.Resources.wait_c;
             QiwiJson qiwi = new();
             qiwi = qiwi.GetData();
-            // Рублей за тенге по курсу qiwi
-            float kzt = qiwi.GetRate(("643", "398"));
+            // Рублей за доллар по курсу qiwi
+            float kzt = qiwi.GetRate(("643", "840"));
             if (kzt == 0)
             {
                 PictureBoxKZT.Image = Properties.Resources.no_c;
             }
             else
             {
-                KZT_Qiwi = kzt;
-                Properties.Settings.Default["KZT_Qiwi"] = KZT_Qiwi;
-                LabelKZT.Text = $"Рублей за тенге     - {Math.Round(KZT_Qiwi, 3)} (Qiwi)";
+                RUB_USD_Qiwi = kzt;
+                Properties.Settings.Default["RUB_USD_Qiwi"] = RUB_USD_Qiwi;
+                LabelKZT.Text = $"Рублей за доллар - {Math.Round(RUB_USD_Qiwi, 4)} (Qiwi)";
                 PictureBoxKZT.Image = Properties.Resources.yes_c;
             }
             // Тенге за доллар по курсу qiwi
@@ -100,9 +113,9 @@ namespace SteamCurrency
             }
             else
             {
-                USD_Qiwi = usdQiwi;
-                Properties.Settings.Default["USD_Qiwi"] = USD_Qiwi;
-                LabelKZT_USD.Text = $"Тенге за доллар    - {Math.Round(USD_Qiwi, 2)} (Qiwi)";
+                KZT_USD_Qiwi = usdQiwi;
+                Properties.Settings.Default["KZT_USD_Qiwi"] = KZT_USD_Qiwi;
+                LabelKZT_USD.Text = $"Тенге за доллар    - {Math.Round(KZT_USD_Qiwi, 2)} (Qiwi)";
                 PictureBoxKZTUSD.Image = Properties.Resources.yes_c;
             }
 
@@ -117,10 +130,10 @@ namespace SteamCurrency
             }
             else
             {
-                USD_Web = usdWeb;
-                Properties.Settings.Default["USD_Web"] = USD_Web;
-                LabelUSDWeb.Text = $"Рублей за доллар - {Math.Round(USD_Web, 4)} (Webmoney)";
-                TextBoxInputUsdWeb.Text = USD_Web.ToString(CultureInfo.InvariantCulture);
+                RUB_USD_Web = usdWeb;
+                Properties.Settings.Default["RUB_USD_Web"] = RUB_USD_Web;
+                LabelUSDWeb.Text = $"Рублей за доллар - {Math.Round(RUB_USD_Web, 4)} (Webmoney)";
+                TextBoxInputUsdWeb.Text = RUB_USD_Web.ToString(CultureInfo.InvariantCulture);
                 PictureBoxUSDWeb.Image = Properties.Resources.yes_c;
             }
 
@@ -179,19 +192,19 @@ namespace SteamCurrency
 
                 if (PaySystem)
                 {
-                    // Рубли -> Тенге -> Доллары -> Рубли
-                    RUB_Output = ((RUB_Input / KZT_Qiwi) / (USD_Qiwi + 0.0415f * USD_Qiwi)) * USD_Steam;
+                    // Рубли -> Доллары -> Рубли
+                    RUB_Output = (RUB_Input / RUB_USD_Qiwi) * 0.91f * RUB_USD_Steam;
                 }
                 else
                 {
                     // Рубли -> Доллары -> Рубли
-                    RUB_Output = (RUB_Input / USD_Web_Real) * 0.902f * USD_Steam;
+                    RUB_Output = (RUB_Input / RUB_USD_Web_Real) * 0.82f * RUB_USD_Steam;
                 }
 
                 TextBoxOutput.Text = Math.Round(RUB_Output, 2).ToString(CultureInfo.InvariantCulture);
                 float delta = RUB_Input - RUB_Output;
                 TextBoxLost.Text = Math.Round(Math.Abs(delta), 2).ToString(CultureInfo.InvariantCulture);
-                TextBoxInputKZT.Text = Math.Round(RUB_Input / KZT_Qiwi, 2, MidpointRounding.ToNegativeInfinity).ToString(CultureInfo.InvariantCulture);
+                TextBoxInputKZT.Text = Math.Round(RUB_Input / RUB_USD_Qiwi, 4, MidpointRounding.ToNegativeInfinity).ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -231,20 +244,20 @@ namespace SteamCurrency
 
                 if (PaySystem)
                 {
-                    // Рубли -> Доллары -> Тенге -> Рубли
-                    RUB_Input = (RUB_Output / USD_Steam) * (USD_Qiwi + 0.0415f * USD_Qiwi) * KZT_Qiwi;
+                    // Рубли -> Доллары -> Рубли
+                    RUB_Input = (RUB_Output / RUB_USD_Steam) * 1.09f * RUB_USD_Qiwi;
                 }
                 else
                 {
                     // Рубли -> Доллары -> Рубли
-                    RUB_Input = (RUB_Output / USD_Steam) * 1.098f * USD_Web_Real;
+                    RUB_Input = (RUB_Output / RUB_USD_Steam) * 1.18f * RUB_USD_Web_Real;
                 }
 
                 RUB_Input = Convert.ToSingle(Math.Round(RUB_Input));
                 TextBoxInput.Text = RUB_Input.ToString(CultureInfo.InvariantCulture);
                 float delta = RUB_Input - RUB_Output;
                 TextBoxLost.Text = Math.Round(Math.Abs(delta), 2).ToString(CultureInfo.InvariantCulture);
-                TextBoxInputKZT.Text = Math.Round(RUB_Input / KZT_Qiwi, 2, MidpointRounding.ToNegativeInfinity).ToString(CultureInfo.InvariantCulture);
+                TextBoxInputKZT.Text = Math.Round(RUB_Input / RUB_USD_Qiwi, 4, MidpointRounding.ToNegativeInfinity).ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -259,7 +272,7 @@ namespace SteamCurrency
         private void CalcPercent()
         {
             float RUB_Output, percent;
-            RUB_Output = PaySystem ? ((10000 / KZT_Qiwi) / (USD_Qiwi + 0.0415f * USD_Qiwi)) * USD_Steam : (10000 / USD_Web_Real) * 0.902f * USD_Steam;
+            RUB_Output = PaySystem ? (10000 / (RUB_USD_Qiwi * 1.09f)) * RUB_USD_Steam : (10000 / RUB_USD_Web_Real) * 0.82f * RUB_USD_Steam;
             percent = 100 - (100 / (10000 / RUB_Output));
             LabelTextLost.Text = percent < 0 ? "Я выиграю" : "Я потеряю";
             LabelRUBLostPercent.Visible = true;
@@ -349,9 +362,9 @@ namespace SteamCurrency
                 text = text.Replace('ю', '.');
             }
 
-            USD_Web_Real = text.Length == 0 ? 0 : Convert.ToSingle(text, CultureInfo.InvariantCulture);
+            RUB_USD_Web_Real = text.Length == 0 ? 0 : Convert.ToSingle(text, CultureInfo.InvariantCulture);
 
-            Properties.Settings.Default["USD_Web_Real"] = USD_Web_Real;
+            Properties.Settings.Default["RUB_USD_Web_Real"] = RUB_USD_Web_Real;
             Properties.Settings.Default.Save();
             string temp;
             if (Reverse == false)

@@ -26,60 +26,84 @@ namespace SteamCurrency.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float USD_Steam {
+        public float RUB_USD_Steam {
             get {
-                return ((float)(this["USD_Steam"]));
+                return ((float)(this["RUB_USD_Steam"]));
             }
             set {
-                this["USD_Steam"] = value;
+                this["RUB_USD_Steam"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float KZT_Qiwi {
+        public float RUB_KZT_Qiwi {
             get {
-                return ((float)(this["KZT_Qiwi"]));
+                return ((float)(this["RUB_KZT_Qiwi"]));
             }
             set {
-                this["KZT_Qiwi"] = value;
+                this["RUB_KZT_Qiwi"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float USD_Qiwi {
+        public float KZT_USD_Qiwi {
             get {
-                return ((float)(this["USD_Qiwi"]));
+                return ((float)(this["KZT_USD_Qiwi"]));
             }
             set {
-                this["USD_Qiwi"] = value;
+                this["KZT_USD_Qiwi"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float USD_Web {
+        public float RUB_USD_Web {
             get {
-                return ((float)(this["USD_Web"]));
+                return ((float)(this["RUB_USD_Web"]));
             }
             set {
-                this["USD_Web"] = value;
+                this["RUB_USD_Web"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float USD_Web_Real {
+        public float RUB_USD_Web_Real {
             get {
-                return ((float)(this["USD_Web_Real"]));
+                return ((float)(this["RUB_USD_Web_Real"]));
             }
             set {
-                this["USD_Web_Real"] = value;
+                this["RUB_USD_Web_Real"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float RUB_USD_Qiwi {
+            get {
+                return ((float)(this["RUB_USD_Qiwi"]));
+            }
+            set {
+                this["RUB_USD_Qiwi"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float KZT_USD_Steam {
+            get {
+                return ((float)(this["KZT_USD_Steam"]));
+            }
+            set {
+                this["KZT_USD_Steam"] = value;
             }
         }
     }

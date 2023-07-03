@@ -2,19 +2,25 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SteamCurrencyLegacy.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="USD_Steam" Type="System.Single" Scope="User">
+    <Setting Name="RUB_USD_Steam" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="KZT_Qiwi" Type="System.Single" Scope="User">
+    <Setting Name="RUB_KZT_Qiwi" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="USD_Qiwi" Type="System.Single" Scope="User">
+    <Setting Name="KZT_USD_Qiwi" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="USD_Web" Type="System.Single" Scope="User">
+    <Setting Name="RUB_USD_Web" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="USD_Web_Real" Type="System.Single" Scope="User">
+    <Setting Name="RUB_USD_Web_Real" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="RUB_USD_Qiwi" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="KZT_USD_Steam" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>

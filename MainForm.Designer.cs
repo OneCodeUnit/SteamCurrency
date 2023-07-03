@@ -86,11 +86,11 @@
             // LabelKZT
             // 
             LabelKZT.AutoSize = true;
-            LabelKZT.Location = new Point(48, 58);
+            LabelKZT.Location = new Point(46, 58);
             LabelKZT.Name = "LabelKZT";
-            LabelKZT.Size = new Size(193, 28);
+            LabelKZT.Size = new Size(192, 28);
             LabelKZT.TabIndex = 2;
-            LabelKZT.Text = "Рублей за тенге     - ";
+            LabelKZT.Text = "Рублей за доллар - ";
             // 
             // LabelCurrencyRates
             // 
@@ -153,7 +153,7 @@
             LabelRUBInput.Name = "LabelRUBInput";
             LabelRUBInput.Size = new Size(79, 28);
             LabelRUBInput.TabIndex = 9;
-            LabelRUBInput.Text = "руб.";
+            LabelRUBInput.Text = "рублей";
             // 
             // LabelTextOutput
             // 
@@ -171,7 +171,7 @@
             LabelRUBOutput.Name = "LabelRUBOutput";
             LabelRUBOutput.Size = new Size(79, 28);
             LabelRUBOutput.TabIndex = 11;
-            LabelRUBOutput.Text = "руб.";
+            LabelRUBOutput.Text = "рублей";
             // 
             // LabelTextLost
             // 
@@ -189,7 +189,7 @@
             LabelRUBLost.Name = "LabelRUBLost";
             LabelRUBLost.Size = new Size(79, 28);
             LabelRUBLost.TabIndex = 13;
-            LabelRUBLost.Text = "руб.";
+            LabelRUBLost.Text = "рублей";
             // 
             // TextBoxLost
             // 
@@ -233,9 +233,9 @@
             LabelKZTInput.AutoSize = true;
             LabelKZTInput.Location = new Point(269, 247);
             LabelKZTInput.Name = "LabelKZTInput";
-            LabelKZTInput.Size = new Size(60, 28);
+            LabelKZTInput.Size = new Size(23, 28);
             LabelKZTInput.TabIndex = 19;
-            LabelKZTInput.Text = "тенге";
+            LabelKZTInput.Text = "$";
             // 
             // TextBoxInputKZT
             // 
@@ -309,7 +309,7 @@
             LabelUsdInputWeb.AutoSize = true;
             LabelUsdInputWeb.Location = new Point(269, 247);
             LabelUsdInputWeb.Name = "LabelUsdInputWeb";
-            LabelUsdInputWeb.Size = new Size(79, 28);
+            LabelUsdInputWeb.Size = new Size(50, 28);
             LabelUsdInputWeb.TabIndex = 27;
             LabelUsdInputWeb.Text = "руб.";
             LabelUsdInputWeb.Visible = false;

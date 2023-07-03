@@ -21,7 +21,7 @@ namespace SteamCurrencyLib
             median_price = string.Empty;
         }
 
-        // 1 - доллары, 5 - рубли (https://partner.steamgames.com/doc/store/pricing/currencies)
+        // 1 - доллары, 5 - рубли, 37 - тенге (https://partner.steamgames.com/doc/store/pricing/currencies)
         public static SteamJson GetData(int CurrencyCode, string item = "M4A1-S | Hyper Beast (Factory New)", int gameId = 730)
         {
             HttpResponseMessage response;
@@ -38,14 +38,11 @@ namespace SteamCurrencyLib
             return json;
         }
 
-        public float GetRate()
+        public static float GetRate(int from = 1, int to = 5)
         {
             float rate;
-            SteamJson jsonUSD = GetData(1);
-            SteamJson jsonRUB = GetData(5);
-
-            string rawUSD = jsonUSD.lowest_price.Substring(1, jsonUSD.lowest_price.Length - 4);
-            string rawRUB = jsonRUB.lowest_price.Substring(0, jsonRUB.lowest_price.Length - 5);
+            SteamJson jsonUSD = GetData(from);
+            SteamJson jsonRUB = GetData(to);
 
             if (jsonUSD.success == false || jsonRUB.success == false)
             {
@@ -53,9 +50,43 @@ namespace SteamCurrencyLib
             }
             else
             {
-                float steamUSD = Convert.ToSingle(rawUSD, new CultureInfo("en-US"));
-                float steamRUB = Convert.ToSingle(rawRUB, new CultureInfo("ru-RU"));
-                rate = steamRUB / steamUSD;
+                rate = TrimData(jsonRUB, to) / TrimData(jsonUSD, from);
+                if (rate == 1)
+                    rate = 0;
+            }
+            return rate;
+        }
+
+        private static float TrimData(SteamJson rawText, int id)
+        {
+            string text;
+            float rate;
+            switch (id)
+            {
+                case 1:
+                    text = rawText.lowest_price.Substring(1, rawText.lowest_price.Length - 4);
+                    rate = Convert.ToSingle(text, new CultureInfo("en-US"));
+                    break;
+                case 5:
+                    text = rawText.lowest_price.Substring(0, rawText.lowest_price.Length - 5);
+                    rate = Convert.ToSingle(text, new CultureInfo("ru-RU"));
+                    break;
+                case 37:
+                    text = rawText.lowest_price.Substring(0, rawText.lowest_price.Length - 1);
+                    text = text.Replace(" ", "");
+                    rate = Convert.ToSingle(text, new CultureInfo("ru-RU"));
+                    break;
+                default:
+                    text = rawText.lowest_price;
+                    try
+                    {
+                        rate = Convert.ToSingle(text, CultureInfo.InvariantCulture);
+                    }
+                    catch
+                    {
+                        rate = 1;
+                    }
+                    break;
             }
             return rate;
         }
