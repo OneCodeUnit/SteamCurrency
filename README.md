@@ -14,12 +14,10 @@
 + Windows 7 и новее
 + [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework) (любой вариант)
 
-## [Скачать программу](https://github.com/OneCodeUnit/SteamCurrency/releases/latest)
-
-## [Как пополнять](https://github.com/OneCodeUnit/SteamCurrency/wiki/Оглавление)
-
 ## Работа программы
-Программа через Rest-запросы узнаёт у Steam, WebMoney (окольными путями) и Qiwi (через API) курсы валют и производит вычисления суммы, которая поступит, и суммы, которую "съест" конвертация.
+Программа через Rest-запросы узнаёт у Steam (окольными путями), WebMoney и Qiwi (через API) курсы валют и производит вычисления суммы, которая поступит, и суммы, которую "съест" конвертация.
+### [Скачать программу](https://github.com/OneCodeUnit/SteamCurrency/releases/latest)
+### [Как пополнять Steam](https://github.com/OneCodeUnit/SteamCurrency/wiki/Оглавление)
 
 ## Обратите внимание
 + Курсы у Steam и Qiwi и WebMoney отличаются от биржевых, поэтому их необходимо узнавать.
