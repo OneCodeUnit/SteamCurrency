@@ -1,9 +1,7 @@
-﻿using Newtonsoft.Json;
-using System.Globalization;
-using System;
-using System.Net.Http;
+﻿using System.Globalization;
+using System.Text.Json;
 
-namespace SteamCurrencyLib
+namespace SteamCurrency
 {
 #pragma warning disable IDE1006, CA1707
     public class SteamJson
@@ -34,7 +32,7 @@ namespace SteamCurrencyLib
                 return new SteamJson();
             }
             string text = response.Content.ReadAsStringAsync().Result;
-            SteamJson json = JsonConvert.DeserializeObject<SteamJson>(text);
+            SteamJson json = JsonSerializer.Deserialize<SteamJson>(text);
             return json;
         }
 
@@ -44,7 +42,7 @@ namespace SteamCurrencyLib
             SteamJson jsonUSD = GetData(from);
             SteamJson jsonRUB = GetData(to);
 
-            if (jsonUSD.success == false || jsonRUB.success == false)
+            if (jsonUSD?.success == false || jsonRUB?.success == false)
             {
                 rate = 0;
             }
@@ -64,15 +62,15 @@ namespace SteamCurrencyLib
             switch (id)
             {
                 case 1:
-                    text = rawText.lowest_price.Substring(1, rawText.lowest_price.Length - 4);
+                    text = rawText.lowest_price[1..^3];
                     rate = Convert.ToSingle(text, new CultureInfo("en-US"));
                     break;
                 case 5:
-                    text = rawText.lowest_price.Substring(0, rawText.lowest_price.Length - 5);
+                    text = rawText.lowest_price[..^5];
                     rate = Convert.ToSingle(text, new CultureInfo("ru-RU"));
                     break;
                 case 37:
-                    text = rawText.lowest_price.Substring(0, rawText.lowest_price.Length - 1);
+                    text = rawText.lowest_price[..^1];
                     text = text.Replace(" ", "");
                     rate = Convert.ToSingle(text, new CultureInfo("ru-RU"));
                     break;

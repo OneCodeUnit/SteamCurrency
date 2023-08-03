@@ -1,8 +1,6 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Net.Http;
+﻿using System.Text.Json;
 
-namespace SteamCurrencyLib
+namespace SteamCurrency
 {
 #pragma warning disable IDE1006, CS8618
     public class QiwiJsonResult
@@ -22,7 +20,7 @@ namespace SteamCurrencyLib
             result = new List<QiwiJsonResult>();
         }
 
-        public QiwiJson GetData()
+        public static QiwiJson GetData()
         {
             HttpResponseMessage response;
             try
@@ -34,7 +32,7 @@ namespace SteamCurrencyLib
                 return new QiwiJson();
             }
             string text = response.Content.ReadAsStringAsync().Result;
-            QiwiJson json = JsonConvert.DeserializeObject<QiwiJson>(text);
+            QiwiJson json = JsonSerializer.Deserialize<QiwiJson>(text);
             return json;
         }
 

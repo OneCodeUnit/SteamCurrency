@@ -11,7 +11,7 @@
     <AnalysisLevel>latest-recommended</AnalysisLevel>
     <ApplicationIcon>Flag.ico</ApplicationIcon>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <Version>$(VersionPrefix)3.2.0</Version>
+    <Version>$(VersionPrefix)4.0.0</Version>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/OneCodeUnit/SteamCurrency</RepositoryUrl>
     <NeutralLanguage>ru</NeutralLanguage>
@@ -22,8 +22,8 @@
     <PackageTags>Steam; Currency; Calculator; Currency rate; Qiwi; WebMoney</PackageTags>
     <PackageId>SteamCurrencyCalculator</PackageId>
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
-    <AssemblyVersion>3.2.0</AssemblyVersion>
-    <FileVersion>3.2.0</FileVersion>
+    <AssemblyVersion>4.0</AssemblyVersion>
+    <FileVersion>4.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -35,11 +35,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|anycpu'">
-    <DebugType>full</DebugType>
+    <DebugType>none</DebugType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|anycpu'">
-    <DebugType>full</DebugType>
+    <DebugType>none</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -88,14 +88,6 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="SteamCurrencyLib\SteamCurrencyLib.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,6 @@
-﻿using Newtonsoft.Json;
-using System.Net.Http;
+﻿using System.Text.Json;
 
-namespace SteamCurrencyLib
+namespace SteamCurrency
 {
 #pragma warning disable IDE1006, CA1707
     public class WMJson
@@ -18,7 +17,7 @@ namespace SteamCurrencyLib
         }
 
         // 118 означает из RUB в WMZ
-        public WMJson GetData(int type = 118)
+        public static WMJson GetData(int type = 118)
         {
             HttpResponseMessage response;
             try
@@ -30,7 +29,7 @@ namespace SteamCurrencyLib
                 return new WMJson();
             }
             string text = response.Content.ReadAsStringAsync().Result;
-            WMJson json = JsonConvert.DeserializeObject<WMJson>(text);
+            WMJson json = JsonSerializer.Deserialize<WMJson>(text);
             return json;
         }
 
