@@ -36,7 +36,7 @@ namespace SteamCurrency
             return json;
         }
 
-        // 398 - тенге, 643 - рубли, 840 - доллары, 978 - евро, 156 - юани
+        // 398 - тенге, 643 - рубли, 840 - доллары, 978 - евро, 156 - юани, 860 - сум
         public float GetRate((string, string) pair)
         {
             float rate = 0;
