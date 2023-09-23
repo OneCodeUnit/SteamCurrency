@@ -2,7 +2,7 @@
 
 namespace SteamCurrency
 {
-#pragma warning disable IDE1006, CS8618
+#pragma warning disable IDE1006, CS8618, CS8603, CS8600
     public class QiwiJsonResult
     {
         public string set { get; set; }
@@ -50,5 +50,5 @@ namespace SteamCurrency
             return rate;
         }
     }
-#pragma warning restore IDE1006, CS8618
+#pragma warning restore IDE1006, CS8618, CS8603, CS8600
 }

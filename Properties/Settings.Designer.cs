@@ -82,53 +82,5 @@ namespace SteamCurrency.Properties {
                 this["RUB_USD_Web_Real"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float RUB_USD_Qiwi {
-            get {
-                return ((float)(this["RUB_USD_Qiwi"]));
-            }
-            set {
-                this["RUB_USD_Qiwi"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float KZT_USD_Steam {
-            get {
-                return ((float)(this["KZT_USD_Steam"]));
-            }
-            set {
-                this["KZT_USD_Steam"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float UZS_USD_Qiwi {
-            get {
-                return ((float)(this["UZS_USD_Qiwi"]));
-            }
-            set {
-                this["UZS_USD_Qiwi"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float RUB_UZS_Qiwi {
-            get {
-                return ((float)(this["RUB_UZS_Qiwi"]));
-            }
-            set {
-                this["RUB_UZS_Qiwi"] = value;
-            }
-        }
     }
 }

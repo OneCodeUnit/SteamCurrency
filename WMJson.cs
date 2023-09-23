@@ -2,7 +2,7 @@
 
 namespace SteamCurrency
 {
-#pragma warning disable IDE1006, CA1707
+#pragma warning disable IDE1006, CA1707, CS8600, CS8603
     public class WMJson
     {
         public double BankRate { get; set; }
@@ -39,5 +39,5 @@ namespace SteamCurrency
             return rate;
         }
     }
-#pragma warning restore IDE1006, CA1707
+#pragma warning restore IDE1006, CA1707, CS8600, CS8603
 }
