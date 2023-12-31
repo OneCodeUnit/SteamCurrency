@@ -11,7 +11,7 @@
     <AnalysisLevel>latest-recommended</AnalysisLevel>
     <ApplicationIcon>Flag.ico</ApplicationIcon>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <Version>$(VersionPrefix)5.0.1</Version>
+    <Version>$(VersionPrefix)6.0.0</Version>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/OneCodeUnit/SteamCurrency</RepositoryUrl>
     <NeutralLanguage>ru</NeutralLanguage>

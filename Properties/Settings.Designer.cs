@@ -12,7 +12,7 @@ namespace SteamCurrency.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,12 +26,12 @@ namespace SteamCurrency.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float RUB_USD_Steam {
+        public float USD_KZT_Qiwi {
             get {
-                return ((float)(this["RUB_USD_Steam"]));
+                return ((float)(this["USD_KZT_Qiwi"]));
             }
             set {
-                this["RUB_USD_Steam"] = value;
+                this["USD_KZT_Qiwi"] = value;
             }
         }
         
@@ -50,12 +50,36 @@ namespace SteamCurrency.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float KZT_USD_Qiwi {
+        public float RUB_USD_Qiwi {
             get {
-                return ((float)(this["KZT_USD_Qiwi"]));
+                return ((float)(this["RUB_USD_Qiwi"]));
             }
             set {
-                this["KZT_USD_Qiwi"] = value;
+                this["RUB_USD_Qiwi"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float RUB_USD_Steam {
+            get {
+                return ((float)(this["RUB_USD_Steam"]));
+            }
+            set {
+                this["RUB_USD_Steam"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float KZT_USD_Steam {
+            get {
+                return ((float)(this["KZT_USD_Steam"]));
+            }
+            set {
+                this["KZT_USD_Steam"] = value;
             }
         }
         

@@ -28,44 +28,496 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Label labelCurrencyQiwi1Rub;
+            PictureBox pictureBoxQiwiKzt;
+            Label labelCurrencyQiwi1Kzt;
+            Label labelCurrencyQiwi1Usd;
+            Button button1;
+            Label labelTextInput;
+            Label LabelTextOutput;
+            Label labelLost;
+            Label labelConvert;
+            Button button2;
+            Label labelCurrencyQiwi1RubOutput;
+            Label labelCurrencyQiwi1KztOutput;
+            Button button3;
+            Label labelQiwi1;
+            Label labelQiwi;
+            Label labelSteam;
+            Label labelWeb;
+            Label labelQiwi2;
+            Button button4;
+            Label labelCurrencyQiwi2KztOutput;
+            Label labelCurrencyQiwi2RubOutput;
+            Button button5;
+            Button button6;
+            Label labelCurrencyQiwi2Usd;
+            PictureBox pictureBoxQiwiUsd;
+            Label labelCurrencyQiwi2Rub;
+            Label labelWeb1;
+            Button button7;
+            Label labelCurrencyWebKztOutput;
+            Label labelCurrencyWebRubOutput;
+            Button button8;
+            Button button9;
+            Label labelCurrencyWebUsd;
+            PictureBox pictureBoxWebUsd;
+            Label labelCurrencyWebRub;
+            Button button10;
+            Button button11;
+            Label labelUsdWeb;
+            Button button12;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             ButtonGetRates = new Button();
-            LabelUSD = new Label();
-            LabelKZT = new Label();
             LabelCurrencyRates = new Label();
-            PictureBoxKZT = new PictureBox();
-            PictureBoxUSD = new PictureBox();
-            TextBoxInput = new TextBox();
-            TextBoxOutput = new TextBox();
-            LabelTextInput = new Label();
-            LabelRUBInput = new Label();
+            pictureBoxSteam = new PictureBox();
+            pictureBoxQiwi = new PictureBox();
+            pictureBoxWeb = new PictureBox();
+            textBoxInputQiwi1 = new TextBox();
+            textBoxConvertQiwi1Kzt = new TextBox();
+            textBoxConvertQiwi1Usd = new TextBox();
+            textBoxOutputQiwi1RU = new TextBox();
+            textBoxOutputQiwi1KZ = new TextBox();
+            textBoxLostQiwi1RU = new TextBox();
+            labelLostQiwi1RU = new Label();
+            labelLostQiwi2RU = new Label();
+            textBoxLostQiwi2RU = new TextBox();
+            textBoxOutputQiwi2KZ = new TextBox();
+            textBoxOutputQiwi2RU = new TextBox();
+            textBoxConvertQiwi2Usd = new TextBox();
+            textBoxInputQiwi2 = new TextBox();
+            labelLostWebRU = new Label();
+            textBoxLostWebRU = new TextBox();
+            textBoxOutputWebKZ = new TextBox();
+            textBoxOutputWebRU = new TextBox();
+            textBoxConvertWebUsd = new TextBox();
+            textBoxInputWeb = new TextBox();
+            textBoxUsdWeb = new TextBox();
+            labelCurrencyQiwi1Rub = new Label();
+            pictureBoxQiwiKzt = new PictureBox();
+            labelCurrencyQiwi1Kzt = new Label();
+            labelCurrencyQiwi1Usd = new Label();
+            button1 = new Button();
+            labelTextInput = new Label();
             LabelTextOutput = new Label();
-            LabelRUBOutput = new Label();
-            LabelTextLost = new Label();
-            LabelRUBLost = new Label();
-            TextBoxLost = new TextBox();
-            LabelRUBLostPercent = new Label();
-            PictureBoxKZTUSD = new PictureBox();
-            LabelKZT_USD = new Label();
-            LabelKZTInput = new Label();
-            TextBoxInputKZT = new TextBox();
-            LabelTextSend = new Label();
-            ButtonReverse = new Button();
-            PictureBoxUSDWeb = new PictureBox();
-            LabelUSDWeb = new Label();
-            ButtonTargetSystem = new Button();
-            LabelTextSendWeb = new Label();
-            LabelUsdInputWeb = new Label();
-            TextBoxInputUsdWeb = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)PictureBoxKZT).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PictureBoxUSD).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PictureBoxKZTUSD).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PictureBoxUSDWeb).BeginInit();
+            labelLost = new Label();
+            labelConvert = new Label();
+            button2 = new Button();
+            labelCurrencyQiwi1RubOutput = new Label();
+            labelCurrencyQiwi1KztOutput = new Label();
+            button3 = new Button();
+            labelQiwi1 = new Label();
+            labelQiwi = new Label();
+            labelSteam = new Label();
+            labelWeb = new Label();
+            labelQiwi2 = new Label();
+            button4 = new Button();
+            labelCurrencyQiwi2KztOutput = new Label();
+            labelCurrencyQiwi2RubOutput = new Label();
+            button5 = new Button();
+            button6 = new Button();
+            labelCurrencyQiwi2Usd = new Label();
+            pictureBoxQiwiUsd = new PictureBox();
+            labelCurrencyQiwi2Rub = new Label();
+            labelWeb1 = new Label();
+            button7 = new Button();
+            labelCurrencyWebKztOutput = new Label();
+            labelCurrencyWebRubOutput = new Label();
+            button8 = new Button();
+            button9 = new Button();
+            labelCurrencyWebUsd = new Label();
+            pictureBoxWebUsd = new PictureBox();
+            labelCurrencyWebRub = new Label();
+            button10 = new Button();
+            button11 = new Button();
+            labelUsdWeb = new Label();
+            button12 = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxQiwiKzt).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxQiwiUsd).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWebUsd).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSteam).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxQiwi).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWeb).BeginInit();
             SuspendLayout();
+            // 
+            // labelCurrencyQiwi1Rub
+            // 
+            labelCurrencyQiwi1Rub.AutoSize = true;
+            labelCurrencyQiwi1Rub.Location = new Point(486, 43);
+            labelCurrencyQiwi1Rub.Name = "labelCurrencyQiwi1Rub";
+            labelCurrencyQiwi1Rub.Size = new Size(23, 28);
+            labelCurrencyQiwi1Rub.TabIndex = 9;
+            labelCurrencyQiwi1Rub.Text = "₽";
+            // 
+            // pictureBoxQiwiKzt
+            // 
+            pictureBoxQiwiKzt.BackColor = SystemColors.Control;
+            pictureBoxQiwiKzt.BackgroundImageLayout = ImageLayout.None;
+            pictureBoxQiwiKzt.Enabled = false;
+            pictureBoxQiwiKzt.Image = Properties.Resources.qiwi_c;
+            pictureBoxQiwiKzt.Location = new Point(315, 40);
+            pictureBoxQiwiKzt.Name = "pictureBoxQiwiKzt";
+            pictureBoxQiwiKzt.Size = new Size(34, 34);
+            pictureBoxQiwiKzt.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBoxQiwiKzt.TabIndex = 29;
+            pictureBoxQiwiKzt.TabStop = false;
+            // 
+            // labelCurrencyQiwi1Kzt
+            // 
+            labelCurrencyQiwi1Kzt.AutoSize = true;
+            labelCurrencyQiwi1Kzt.Location = new Point(702, 43);
+            labelCurrencyQiwi1Kzt.Name = "labelCurrencyQiwi1Kzt";
+            labelCurrencyQiwi1Kzt.Size = new Size(23, 28);
+            labelCurrencyQiwi1Kzt.TabIndex = 34;
+            labelCurrencyQiwi1Kzt.Text = "₸";
+            // 
+            // labelCurrencyQiwi1Usd
+            // 
+            labelCurrencyQiwi1Usd.AutoSize = true;
+            labelCurrencyQiwi1Usd.Location = new Point(702, 83);
+            labelCurrencyQiwi1Usd.Name = "labelCurrencyQiwi1Usd";
+            labelCurrencyQiwi1Usd.Size = new Size(23, 28);
+            labelCurrencyQiwi1Usd.TabIndex = 35;
+            labelCurrencyQiwi1Usd.Text = "$";
+            // 
+            // button1
+            // 
+            button1.Enabled = false;
+            button1.Location = new Point(515, 40);
+            button1.Name = "button1";
+            button1.Size = new Size(50, 34);
+            button1.TabIndex = 38;
+            button1.UseVisualStyleBackColor = true;
+            button1.Visible = false;
+            // 
+            // labelTextInput
+            // 
+            labelTextInput.AutoSize = true;
+            labelTextInput.Location = new Point(315, 9);
+            labelTextInput.Name = "labelTextInput";
+            labelTextInput.Size = new Size(171, 28);
+            labelTextInput.TabIndex = 8;
+            labelTextInput.Text = "Я хочу отправить";
+            // 
+            // LabelTextOutput
+            // 
+            LabelTextOutput.AutoSize = true;
+            LabelTextOutput.Location = new Point(787, 9);
+            LabelTextOutput.Name = "LabelTextOutput";
+            LabelTextOutput.Size = new Size(95, 28);
+            LabelTextOutput.TabIndex = 10;
+            LabelTextOutput.Text = "Я получу";
+            // 
+            // labelLost
+            // 
+            labelLost.AutoSize = true;
+            labelLost.Location = new Point(1136, 9);
+            labelLost.Name = "labelLost";
+            labelLost.Size = new Size(109, 28);
+            labelLost.TabIndex = 12;
+            labelLost.Text = "Я потеряю";
+            // 
+            // labelConvert
+            // 
+            labelConvert.AutoSize = true;
+            labelConvert.Location = new Point(571, 9);
+            labelConvert.Name = "labelConvert";
+            labelConvert.Size = new Size(100, 28);
+            labelConvert.TabIndex = 32;
+            labelConvert.Text = "Это будет";
+            // 
+            // button2
+            // 
+            button2.Enabled = false;
+            button2.Location = new Point(731, 40);
+            button2.Name = "button2";
+            button2.Size = new Size(50, 34);
+            button2.TabIndex = 39;
+            button2.UseVisualStyleBackColor = true;
+            button2.Visible = false;
+            // 
+            // labelCurrencyQiwi1RubOutput
+            // 
+            labelCurrencyQiwi1RubOutput.AutoSize = true;
+            labelCurrencyQiwi1RubOutput.Location = new Point(918, 43);
+            labelCurrencyQiwi1RubOutput.Name = "labelCurrencyQiwi1RubOutput";
+            labelCurrencyQiwi1RubOutput.Size = new Size(156, 28);
+            labelCurrencyQiwi1RubOutput.TabIndex = 40;
+            labelCurrencyQiwi1RubOutput.Text = "₽ на RU аккаунт";
+            // 
+            // labelCurrencyQiwi1KztOutput
+            // 
+            labelCurrencyQiwi1KztOutput.AutoSize = true;
+            labelCurrencyQiwi1KztOutput.Location = new Point(918, 86);
+            labelCurrencyQiwi1KztOutput.Name = "labelCurrencyQiwi1KztOutput";
+            labelCurrencyQiwi1KztOutput.Size = new Size(153, 28);
+            labelCurrencyQiwi1KztOutput.TabIndex = 42;
+            labelCurrencyQiwi1KztOutput.Text = "₸ на KZ аккаунт";
+            // 
+            // button3
+            // 
+            button3.Enabled = false;
+            button3.Location = new Point(1080, 37);
+            button3.Name = "button3";
+            button3.Size = new Size(50, 34);
+            button3.TabIndex = 43;
+            button3.UseVisualStyleBackColor = true;
+            button3.Visible = false;
+            // 
+            // labelQiwi1
+            // 
+            labelQiwi1.AutoSize = true;
+            labelQiwi1.Location = new Point(315, 86);
+            labelQiwi1.Name = "labelQiwi1";
+            labelQiwi1.Size = new Size(216, 28);
+            labelQiwi1.TabIndex = 48;
+            labelQiwi1.Text = "Через Qiwi (Казахстан)";
+            // 
+            // labelQiwi
+            // 
+            labelQiwi.AutoSize = true;
+            labelQiwi.Location = new Point(47, 84);
+            labelQiwi.Name = "labelQiwi";
+            labelQiwi.Size = new Size(51, 28);
+            labelQiwi.TabIndex = 1;
+            labelQiwi.Text = "Qiwi";
+            // 
+            // labelSteam
+            // 
+            labelSteam.AutoSize = true;
+            labelSteam.Location = new Point(47, 48);
+            labelSteam.Name = "labelSteam";
+            labelSteam.Size = new Size(66, 28);
+            labelSteam.TabIndex = 2;
+            labelSteam.Text = "Steam";
+            // 
+            // labelWeb
+            // 
+            labelWeb.AutoSize = true;
+            labelWeb.Location = new Point(47, 119);
+            labelWeb.Name = "labelWeb";
+            labelWeb.Size = new Size(113, 28);
+            labelWeb.TabIndex = 23;
+            labelWeb.Text = "WebMoney";
+            // 
+            // labelQiwi2
+            // 
+            labelQiwi2.AutoSize = true;
+            labelQiwi2.Location = new Point(315, 203);
+            labelQiwi2.Name = "labelQiwi2";
+            labelQiwi2.Size = new Size(286, 28);
+            labelQiwi2.TabIndex = 65;
+            labelQiwi2.Text = "Через Qiwi (Международный)";
+            // 
+            // button4
+            // 
+            button4.Enabled = false;
+            button4.Location = new Point(1080, 154);
+            button4.Name = "button4";
+            button4.Size = new Size(50, 34);
+            button4.TabIndex = 62;
+            button4.UseVisualStyleBackColor = true;
+            button4.Visible = false;
+            // 
+            // labelCurrencyQiwi2KztOutput
+            // 
+            labelCurrencyQiwi2KztOutput.AutoSize = true;
+            labelCurrencyQiwi2KztOutput.Location = new Point(918, 203);
+            labelCurrencyQiwi2KztOutput.Name = "labelCurrencyQiwi2KztOutput";
+            labelCurrencyQiwi2KztOutput.Size = new Size(153, 28);
+            labelCurrencyQiwi2KztOutput.TabIndex = 61;
+            labelCurrencyQiwi2KztOutput.Text = "₸ на KZ аккаунт";
+            // 
+            // labelCurrencyQiwi2RubOutput
+            // 
+            labelCurrencyQiwi2RubOutput.AutoSize = true;
+            labelCurrencyQiwi2RubOutput.Location = new Point(918, 160);
+            labelCurrencyQiwi2RubOutput.Name = "labelCurrencyQiwi2RubOutput";
+            labelCurrencyQiwi2RubOutput.Size = new Size(156, 28);
+            labelCurrencyQiwi2RubOutput.TabIndex = 59;
+            labelCurrencyQiwi2RubOutput.Text = "₽ на RU аккаунт";
+            // 
+            // button5
+            // 
+            button5.Enabled = false;
+            button5.Location = new Point(731, 157);
+            button5.Name = "button5";
+            button5.Size = new Size(50, 34);
+            button5.TabIndex = 58;
+            button5.UseVisualStyleBackColor = true;
+            button5.Visible = false;
+            // 
+            // button6
+            // 
+            button6.Enabled = false;
+            button6.Location = new Point(515, 157);
+            button6.Name = "button6";
+            button6.Size = new Size(50, 34);
+            button6.TabIndex = 57;
+            button6.UseVisualStyleBackColor = true;
+            button6.Visible = false;
+            // 
+            // labelCurrencyQiwi2Usd
+            // 
+            labelCurrencyQiwi2Usd.AutoSize = true;
+            labelCurrencyQiwi2Usd.Location = new Point(702, 160);
+            labelCurrencyQiwi2Usd.Name = "labelCurrencyQiwi2Usd";
+            labelCurrencyQiwi2Usd.Size = new Size(23, 28);
+            labelCurrencyQiwi2Usd.TabIndex = 55;
+            labelCurrencyQiwi2Usd.Text = "$";
+            // 
+            // pictureBoxQiwiUsd
+            // 
+            pictureBoxQiwiUsd.BackColor = SystemColors.Control;
+            pictureBoxQiwiUsd.BackgroundImageLayout = ImageLayout.None;
+            pictureBoxQiwiUsd.Enabled = false;
+            pictureBoxQiwiUsd.Image = Properties.Resources.qiwi_c;
+            pictureBoxQiwiUsd.Location = new Point(315, 157);
+            pictureBoxQiwiUsd.Name = "pictureBoxQiwiUsd";
+            pictureBoxQiwiUsd.Size = new Size(34, 34);
+            pictureBoxQiwiUsd.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBoxQiwiUsd.TabIndex = 50;
+            pictureBoxQiwiUsd.TabStop = false;
+            // 
+            // labelCurrencyQiwi2Rub
+            // 
+            labelCurrencyQiwi2Rub.AutoSize = true;
+            labelCurrencyQiwi2Rub.Location = new Point(486, 160);
+            labelCurrencyQiwi2Rub.Name = "labelCurrencyQiwi2Rub";
+            labelCurrencyQiwi2Rub.Size = new Size(23, 28);
+            labelCurrencyQiwi2Rub.TabIndex = 49;
+            labelCurrencyQiwi2Rub.Text = "₽";
+            // 
+            // labelWeb1
+            // 
+            labelWeb1.AutoSize = true;
+            labelWeb1.Location = new Point(315, 320);
+            labelWeb1.Name = "labelWeb1";
+            labelWeb1.Size = new Size(257, 28);
+            labelWeb1.TabIndex = 80;
+            labelWeb1.Text = "Через WebMoney по курсу";
+            // 
+            // button7
+            // 
+            button7.Enabled = false;
+            button7.Location = new Point(1080, 271);
+            button7.Name = "button7";
+            button7.Size = new Size(50, 34);
+            button7.TabIndex = 77;
+            button7.UseVisualStyleBackColor = true;
+            button7.Visible = false;
+            // 
+            // labelCurrencyWebKztOutput
+            // 
+            labelCurrencyWebKztOutput.AutoSize = true;
+            labelCurrencyWebKztOutput.Location = new Point(918, 320);
+            labelCurrencyWebKztOutput.Name = "labelCurrencyWebKztOutput";
+            labelCurrencyWebKztOutput.Size = new Size(153, 28);
+            labelCurrencyWebKztOutput.TabIndex = 76;
+            labelCurrencyWebKztOutput.Text = "₸ на KZ аккаунт";
+            // 
+            // labelCurrencyWebRubOutput
+            // 
+            labelCurrencyWebRubOutput.AutoSize = true;
+            labelCurrencyWebRubOutput.Location = new Point(918, 277);
+            labelCurrencyWebRubOutput.Name = "labelCurrencyWebRubOutput";
+            labelCurrencyWebRubOutput.Size = new Size(156, 28);
+            labelCurrencyWebRubOutput.TabIndex = 74;
+            labelCurrencyWebRubOutput.Text = "₽ на RU аккаунт";
+            // 
+            // button8
+            // 
+            button8.Enabled = false;
+            button8.Location = new Point(731, 274);
+            button8.Name = "button8";
+            button8.Size = new Size(50, 34);
+            button8.TabIndex = 73;
+            button8.UseVisualStyleBackColor = true;
+            button8.Visible = false;
+            // 
+            // button9
+            // 
+            button9.Enabled = false;
+            button9.Location = new Point(515, 274);
+            button9.Name = "button9";
+            button9.Size = new Size(50, 34);
+            button9.TabIndex = 72;
+            button9.UseVisualStyleBackColor = true;
+            button9.Visible = false;
+            // 
+            // labelCurrencyWebUsd
+            // 
+            labelCurrencyWebUsd.AutoSize = true;
+            labelCurrencyWebUsd.Location = new Point(702, 277);
+            labelCurrencyWebUsd.Name = "labelCurrencyWebUsd";
+            labelCurrencyWebUsd.Size = new Size(23, 28);
+            labelCurrencyWebUsd.TabIndex = 70;
+            labelCurrencyWebUsd.Text = "$";
+            // 
+            // pictureBoxWebUsd
+            // 
+            pictureBoxWebUsd.BackColor = SystemColors.Control;
+            pictureBoxWebUsd.BackgroundImageLayout = ImageLayout.None;
+            pictureBoxWebUsd.Enabled = false;
+            pictureBoxWebUsd.Image = Properties.Resources.wm_c;
+            pictureBoxWebUsd.Location = new Point(315, 274);
+            pictureBoxWebUsd.Name = "pictureBoxWebUsd";
+            pictureBoxWebUsd.Size = new Size(34, 34);
+            pictureBoxWebUsd.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBoxWebUsd.TabIndex = 67;
+            pictureBoxWebUsd.TabStop = false;
+            // 
+            // labelCurrencyWebRub
+            // 
+            labelCurrencyWebRub.AutoSize = true;
+            labelCurrencyWebRub.Location = new Point(486, 277);
+            labelCurrencyWebRub.Name = "labelCurrencyWebRub";
+            labelCurrencyWebRub.Size = new Size(23, 28);
+            labelCurrencyWebRub.TabIndex = 66;
+            labelCurrencyWebRub.Text = "₽";
+            // 
+            // button10
+            // 
+            button10.Enabled = false;
+            button10.Location = new Point(315, 117);
+            button10.Name = "button10";
+            button10.Size = new Size(50, 34);
+            button10.TabIndex = 81;
+            button10.UseVisualStyleBackColor = true;
+            button10.Visible = false;
+            // 
+            // button11
+            // 
+            button11.Enabled = false;
+            button11.Location = new Point(313, 234);
+            button11.Name = "button11";
+            button11.Size = new Size(50, 34);
+            button11.TabIndex = 82;
+            button11.UseVisualStyleBackColor = true;
+            button11.Visible = false;
+            // 
+            // labelUsdWeb
+            // 
+            labelUsdWeb.AutoSize = true;
+            labelUsdWeb.Location = new Point(709, 320);
+            labelUsdWeb.Name = "labelUsdWeb";
+            labelUsdWeb.Size = new Size(23, 28);
+            labelUsdWeb.TabIndex = 85;
+            labelUsdWeb.Text = "₽";
+            // 
+            // button12
+            // 
+            button12.Enabled = false;
+            button12.Location = new Point(209, 12);
+            button12.Name = "button12";
+            button12.Size = new Size(100, 34);
+            button12.TabIndex = 86;
+            button12.UseVisualStyleBackColor = true;
+            button12.Visible = false;
             // 
             // ButtonGetRates
             // 
-            ButtonGetRates.Location = new Point(294, 13);
+            ButtonGetRates.Location = new Point(11, 156);
             ButtonGetRates.Margin = new Padding(4);
             ButtonGetRates.Name = "ButtonGetRates";
             ButtonGetRates.Size = new Size(135, 40);
@@ -74,300 +526,302 @@
             ButtonGetRates.UseVisualStyleBackColor = true;
             ButtonGetRates.Click += ButtonGet_Click;
             // 
-            // LabelUSD
-            // 
-            LabelUSD.AutoSize = true;
-            LabelUSD.Location = new Point(46, 94);
-            LabelUSD.Name = "LabelUSD";
-            LabelUSD.Size = new Size(192, 28);
-            LabelUSD.TabIndex = 1;
-            LabelUSD.Text = "Рублей за доллар - ";
-            // 
-            // LabelKZT
-            // 
-            LabelKZT.AutoSize = true;
-            LabelKZT.Location = new Point(46, 58);
-            LabelKZT.Name = "LabelKZT";
-            LabelKZT.Size = new Size(187, 28);
-            LabelKZT.TabIndex = 2;
-            LabelKZT.Text = "Рублей за доллар -";
-            // 
             // LabelCurrencyRates
             // 
             LabelCurrencyRates.AutoSize = true;
-            LabelCurrencyRates.Location = new Point(11, 19);
+            LabelCurrencyRates.Location = new Point(12, 9);
             LabelCurrencyRates.Name = "LabelCurrencyRates";
-            LabelCurrencyRates.Size = new Size(134, 28);
+            LabelCurrencyRates.Size = new Size(191, 28);
             LabelCurrencyRates.TabIndex = 3;
-            LabelCurrencyRates.Text = "Курсы валют:";
+            LabelCurrencyRates.Text = "Получение данных:";
             // 
-            // PictureBoxKZT
+            // pictureBoxSteam
             // 
-            PictureBoxKZT.Location = new Point(11, 58);
-            PictureBoxKZT.Name = "PictureBoxKZT";
-            PictureBoxKZT.Size = new Size(30, 30);
-            PictureBoxKZT.TabIndex = 4;
-            PictureBoxKZT.TabStop = false;
+            pictureBoxSteam.Location = new Point(12, 48);
+            pictureBoxSteam.Name = "pictureBoxSteam";
+            pictureBoxSteam.Size = new Size(30, 30);
+            pictureBoxSteam.TabIndex = 4;
+            pictureBoxSteam.TabStop = false;
             // 
-            // PictureBoxUSD
+            // pictureBoxQiwi
             // 
-            PictureBoxUSD.Location = new Point(11, 94);
-            PictureBoxUSD.Name = "PictureBoxUSD";
-            PictureBoxUSD.Size = new Size(30, 30);
-            PictureBoxUSD.TabIndex = 5;
-            PictureBoxUSD.TabStop = false;
+            pictureBoxQiwi.Location = new Point(12, 84);
+            pictureBoxQiwi.Name = "pictureBoxQiwi";
+            pictureBoxQiwi.Size = new Size(30, 30);
+            pictureBoxQiwi.TabIndex = 5;
+            pictureBoxQiwi.TabStop = false;
             // 
-            // TextBoxInput
+            // pictureBoxWeb
             // 
-            TextBoxInput.Enabled = false;
-            TextBoxInput.Location = new Point(138, 207);
-            TextBoxInput.Name = "TextBoxInput";
-            TextBoxInput.Size = new Size(125, 34);
-            TextBoxInput.TabIndex = 6;
-            TextBoxInput.Text = "0";
-            TextBoxInput.TextChanged += TextBoxInput_TextChanged;
+            pictureBoxWeb.Location = new Point(12, 119);
+            pictureBoxWeb.Name = "pictureBoxWeb";
+            pictureBoxWeb.Size = new Size(30, 30);
+            pictureBoxWeb.TabIndex = 24;
+            pictureBoxWeb.TabStop = false;
             // 
-            // TextBoxOutput
+            // textBoxInputQiwi1
             // 
-            TextBoxOutput.Location = new Point(138, 287);
-            TextBoxOutput.Name = "TextBoxOutput";
-            TextBoxOutput.ReadOnly = true;
-            TextBoxOutput.Size = new Size(125, 34);
-            TextBoxOutput.TabIndex = 7;
-            TextBoxOutput.Text = "0";
-            TextBoxOutput.TextChanged += TextBoxOutput_TextChanged;
+            textBoxInputQiwi1.Location = new Point(355, 40);
+            textBoxInputQiwi1.Name = "textBoxInputQiwi1";
+            textBoxInputQiwi1.Size = new Size(125, 34);
+            textBoxInputQiwi1.TabIndex = 30;
+            textBoxInputQiwi1.Text = "0";
+            textBoxInputQiwi1.TextChanged += TextBoxInputQiwi1_TextChanged;
             // 
-            // LabelTextInput
+            // textBoxConvertQiwi1Kzt
             // 
-            LabelTextInput.AutoSize = true;
-            LabelTextInput.Location = new Point(11, 207);
-            LabelTextInput.Name = "LabelTextInput";
-            LabelTextInput.Size = new Size(121, 28);
-            LabelTextInput.TabIndex = 8;
-            LabelTextInput.Text = "Я отправлю";
+            textBoxConvertQiwi1Kzt.Location = new Point(571, 40);
+            textBoxConvertQiwi1Kzt.Name = "textBoxConvertQiwi1Kzt";
+            textBoxConvertQiwi1Kzt.ReadOnly = true;
+            textBoxConvertQiwi1Kzt.Size = new Size(125, 34);
+            textBoxConvertQiwi1Kzt.TabIndex = 31;
+            textBoxConvertQiwi1Kzt.Text = "0";
             // 
-            // LabelRUBInput
+            // textBoxConvertQiwi1Usd
             // 
-            LabelRUBInput.AutoSize = true;
-            LabelRUBInput.Location = new Point(269, 207);
-            LabelRUBInput.Name = "LabelRUBInput";
-            LabelRUBInput.Size = new Size(50, 28);
-            LabelRUBInput.TabIndex = 9;
-            LabelRUBInput.Text = "руб.";
+            textBoxConvertQiwi1Usd.Location = new Point(571, 80);
+            textBoxConvertQiwi1Usd.Name = "textBoxConvertQiwi1Usd";
+            textBoxConvertQiwi1Usd.ReadOnly = true;
+            textBoxConvertQiwi1Usd.Size = new Size(125, 34);
+            textBoxConvertQiwi1Usd.TabIndex = 33;
+            textBoxConvertQiwi1Usd.Text = "0";
             // 
-            // LabelTextOutput
+            // textBoxOutputQiwi1RU
             // 
-            LabelTextOutput.AutoSize = true;
-            LabelTextOutput.Location = new Point(11, 287);
-            LabelTextOutput.Name = "LabelTextOutput";
-            LabelTextOutput.Size = new Size(95, 28);
-            LabelTextOutput.TabIndex = 10;
-            LabelTextOutput.Text = "Я получу";
+            textBoxOutputQiwi1RU.Location = new Point(787, 40);
+            textBoxOutputQiwi1RU.Name = "textBoxOutputQiwi1RU";
+            textBoxOutputQiwi1RU.ReadOnly = true;
+            textBoxOutputQiwi1RU.Size = new Size(125, 34);
+            textBoxOutputQiwi1RU.TabIndex = 36;
+            textBoxOutputQiwi1RU.Text = "0";
             // 
-            // LabelRUBOutput
+            // textBoxOutputQiwi1KZ
             // 
-            LabelRUBOutput.AutoSize = true;
-            LabelRUBOutput.Location = new Point(269, 287);
-            LabelRUBOutput.Name = "LabelRUBOutput";
-            LabelRUBOutput.Size = new Size(50, 28);
-            LabelRUBOutput.TabIndex = 11;
-            LabelRUBOutput.Text = "руб.";
+            textBoxOutputQiwi1KZ.Location = new Point(787, 83);
+            textBoxOutputQiwi1KZ.Name = "textBoxOutputQiwi1KZ";
+            textBoxOutputQiwi1KZ.ReadOnly = true;
+            textBoxOutputQiwi1KZ.Size = new Size(125, 34);
+            textBoxOutputQiwi1KZ.TabIndex = 41;
+            textBoxOutputQiwi1KZ.Text = "0";
             // 
-            // LabelTextLost
+            // textBoxLostQiwi1RU
             // 
-            LabelTextLost.AutoSize = true;
-            LabelTextLost.Location = new Point(11, 327);
-            LabelTextLost.Name = "LabelTextLost";
-            LabelTextLost.Size = new Size(109, 28);
-            LabelTextLost.TabIndex = 12;
-            LabelTextLost.Text = "Я потеряю";
+            textBoxLostQiwi1RU.Location = new Point(1136, 40);
+            textBoxLostQiwi1RU.Name = "textBoxLostQiwi1RU";
+            textBoxLostQiwi1RU.ReadOnly = true;
+            textBoxLostQiwi1RU.Size = new Size(125, 34);
+            textBoxLostQiwi1RU.TabIndex = 44;
+            textBoxLostQiwi1RU.Text = "0";
             // 
-            // LabelRUBLost
+            // labelLostQiwi1RU
             // 
-            LabelRUBLost.AutoSize = true;
-            LabelRUBLost.Location = new Point(269, 327);
-            LabelRUBLost.Name = "LabelRUBLost";
-            LabelRUBLost.Size = new Size(50, 28);
-            LabelRUBLost.TabIndex = 13;
-            LabelRUBLost.Text = "руб.";
+            labelLostQiwi1RU.AutoSize = true;
+            labelLostQiwi1RU.Location = new Point(1267, 46);
+            labelLostQiwi1RU.Name = "labelLostQiwi1RU";
+            labelLostQiwi1RU.Size = new Size(81, 28);
+            labelLostQiwi1RU.TabIndex = 46;
+            labelLostQiwi1RU.Text = "₽ (+0%)";
             // 
-            // TextBoxLost
+            // labelLostQiwi2RU
             // 
-            TextBoxLost.Location = new Point(138, 327);
-            TextBoxLost.Name = "TextBoxLost";
-            TextBoxLost.ReadOnly = true;
-            TextBoxLost.Size = new Size(125, 34);
-            TextBoxLost.TabIndex = 14;
-            TextBoxLost.Text = "0";
+            labelLostQiwi2RU.AutoSize = true;
+            labelLostQiwi2RU.Location = new Point(1267, 163);
+            labelLostQiwi2RU.Name = "labelLostQiwi2RU";
+            labelLostQiwi2RU.Size = new Size(81, 28);
+            labelLostQiwi2RU.TabIndex = 64;
+            labelLostQiwi2RU.Text = "₽ (+0%)";
             // 
-            // LabelRUBLostPercent
+            // textBoxLostQiwi2RU
             // 
-            LabelRUBLostPercent.AutoSize = true;
-            LabelRUBLostPercent.Location = new Point(354, 327);
-            LabelRUBLostPercent.Name = "LabelRUBLostPercent";
-            LabelRUBLostPercent.Size = new Size(65, 28);
-            LabelRUBLostPercent.TabIndex = 15;
-            LabelRUBLostPercent.Text = "(+0%)";
-            LabelRUBLostPercent.Visible = false;
+            textBoxLostQiwi2RU.Location = new Point(1136, 157);
+            textBoxLostQiwi2RU.Name = "textBoxLostQiwi2RU";
+            textBoxLostQiwi2RU.ReadOnly = true;
+            textBoxLostQiwi2RU.Size = new Size(125, 34);
+            textBoxLostQiwi2RU.TabIndex = 63;
+            textBoxLostQiwi2RU.Text = "0";
             // 
-            // PictureBoxKZTUSD
+            // textBoxOutputQiwi2KZ
             // 
-            PictureBoxKZTUSD.Location = new Point(11, 165);
-            PictureBoxKZTUSD.Name = "PictureBoxKZTUSD";
-            PictureBoxKZTUSD.Size = new Size(30, 30);
-            PictureBoxKZTUSD.TabIndex = 16;
-            PictureBoxKZTUSD.TabStop = false;
+            textBoxOutputQiwi2KZ.Location = new Point(787, 200);
+            textBoxOutputQiwi2KZ.Name = "textBoxOutputQiwi2KZ";
+            textBoxOutputQiwi2KZ.ReadOnly = true;
+            textBoxOutputQiwi2KZ.Size = new Size(125, 34);
+            textBoxOutputQiwi2KZ.TabIndex = 60;
+            textBoxOutputQiwi2KZ.Text = "0";
             // 
-            // LabelKZT_USD
+            // textBoxOutputQiwi2RU
             // 
-            LabelKZT_USD.AutoSize = true;
-            LabelKZT_USD.Location = new Point(48, 165);
-            LabelKZT_USD.Name = "LabelKZT_USD";
-            LabelKZT_USD.Size = new Size(191, 28);
-            LabelKZT_USD.TabIndex = 17;
-            LabelKZT_USD.Text = "Тенге за доллар    - ";
+            textBoxOutputQiwi2RU.Location = new Point(787, 157);
+            textBoxOutputQiwi2RU.Name = "textBoxOutputQiwi2RU";
+            textBoxOutputQiwi2RU.ReadOnly = true;
+            textBoxOutputQiwi2RU.Size = new Size(125, 34);
+            textBoxOutputQiwi2RU.TabIndex = 56;
+            textBoxOutputQiwi2RU.Text = "0";
             // 
-            // LabelKZTInput
+            // textBoxConvertQiwi2Usd
             // 
-            LabelKZTInput.AutoSize = true;
-            LabelKZTInput.Location = new Point(269, 247);
-            LabelKZTInput.Name = "LabelKZTInput";
-            LabelKZTInput.Size = new Size(60, 28);
-            LabelKZTInput.TabIndex = 19;
-            LabelKZTInput.Text = "тенге";
+            textBoxConvertQiwi2Usd.Location = new Point(571, 157);
+            textBoxConvertQiwi2Usd.Name = "textBoxConvertQiwi2Usd";
+            textBoxConvertQiwi2Usd.ReadOnly = true;
+            textBoxConvertQiwi2Usd.Size = new Size(125, 34);
+            textBoxConvertQiwi2Usd.TabIndex = 53;
+            textBoxConvertQiwi2Usd.Text = "0";
             // 
-            // TextBoxInputKZT
+            // textBoxInputQiwi2
             // 
-            TextBoxInputKZT.Location = new Point(138, 247);
-            TextBoxInputKZT.Name = "TextBoxInputKZT";
-            TextBoxInputKZT.ReadOnly = true;
-            TextBoxInputKZT.Size = new Size(125, 34);
-            TextBoxInputKZT.TabIndex = 20;
-            TextBoxInputKZT.Text = "0";
+            textBoxInputQiwi2.Location = new Point(355, 157);
+            textBoxInputQiwi2.Name = "textBoxInputQiwi2";
+            textBoxInputQiwi2.Size = new Size(125, 34);
+            textBoxInputQiwi2.TabIndex = 51;
+            textBoxInputQiwi2.Text = "0";
+            textBoxInputQiwi2.TextChanged += TextBoxInputQiwi2_TextChanged;
             // 
-            // LabelTextSend
+            // labelLostWebRU
             // 
-            LabelTextSend.AutoSize = true;
-            LabelTextSend.Location = new Point(48, 247);
-            LabelTextSend.Name = "LabelTextSend";
-            LabelTextSend.Size = new Size(47, 28);
-            LabelTextSend.TabIndex = 21;
-            LabelTextSend.Text = "или";
+            labelLostWebRU.AutoSize = true;
+            labelLostWebRU.Location = new Point(1267, 280);
+            labelLostWebRU.Name = "labelLostWebRU";
+            labelLostWebRU.Size = new Size(81, 28);
+            labelLostWebRU.TabIndex = 79;
+            labelLostWebRU.Text = "₽ (+0%)";
             // 
-            // ButtonReverse
+            // textBoxLostWebRU
             // 
-            ButtonReverse.BackgroundImageLayout = ImageLayout.None;
-            ButtonReverse.Image = Properties.Resources.rev_c;
-            ButtonReverse.Location = new Point(354, 289);
-            ButtonReverse.Name = "ButtonReverse";
-            ButtonReverse.Size = new Size(30, 30);
-            ButtonReverse.TabIndex = 22;
-            ButtonReverse.UseVisualStyleBackColor = true;
-            ButtonReverse.Click += ButtonReverse_Click;
+            textBoxLostWebRU.Location = new Point(1136, 274);
+            textBoxLostWebRU.Name = "textBoxLostWebRU";
+            textBoxLostWebRU.ReadOnly = true;
+            textBoxLostWebRU.Size = new Size(125, 34);
+            textBoxLostWebRU.TabIndex = 78;
+            textBoxLostWebRU.Text = "0";
             // 
-            // PictureBoxUSDWeb
+            // textBoxOutputWebKZ
             // 
-            PictureBoxUSDWeb.Location = new Point(11, 129);
-            PictureBoxUSDWeb.Name = "PictureBoxUSDWeb";
-            PictureBoxUSDWeb.Size = new Size(30, 30);
-            PictureBoxUSDWeb.TabIndex = 24;
-            PictureBoxUSDWeb.TabStop = false;
+            textBoxOutputWebKZ.Location = new Point(787, 317);
+            textBoxOutputWebKZ.Name = "textBoxOutputWebKZ";
+            textBoxOutputWebKZ.ReadOnly = true;
+            textBoxOutputWebKZ.Size = new Size(125, 34);
+            textBoxOutputWebKZ.TabIndex = 75;
+            textBoxOutputWebKZ.Text = "0";
             // 
-            // LabelUSDWeb
+            // textBoxOutputWebRU
             // 
-            LabelUSDWeb.AutoSize = true;
-            LabelUSDWeb.Location = new Point(46, 129);
-            LabelUSDWeb.Name = "LabelUSDWeb";
-            LabelUSDWeb.Size = new Size(192, 28);
-            LabelUSDWeb.TabIndex = 23;
-            LabelUSDWeb.Text = "Рублей за доллар - ";
+            textBoxOutputWebRU.Location = new Point(787, 274);
+            textBoxOutputWebRU.Name = "textBoxOutputWebRU";
+            textBoxOutputWebRU.ReadOnly = true;
+            textBoxOutputWebRU.Size = new Size(125, 34);
+            textBoxOutputWebRU.TabIndex = 71;
+            textBoxOutputWebRU.Text = "0";
             // 
-            // ButtonTargetSystem
+            // textBoxConvertWebUsd
             // 
-            ButtonTargetSystem.Image = Properties.Resources.qiwi_c;
-            ButtonTargetSystem.Location = new Point(354, 204);
-            ButtonTargetSystem.Margin = new Padding(4);
-            ButtonTargetSystem.Name = "ButtonTargetSystem";
-            ButtonTargetSystem.Size = new Size(75, 40);
-            ButtonTargetSystem.TabIndex = 25;
-            ButtonTargetSystem.UseVisualStyleBackColor = true;
-            ButtonTargetSystem.Click += ButtonTargetSystem_Click;
+            textBoxConvertWebUsd.Location = new Point(571, 274);
+            textBoxConvertWebUsd.Name = "textBoxConvertWebUsd";
+            textBoxConvertWebUsd.ReadOnly = true;
+            textBoxConvertWebUsd.Size = new Size(125, 34);
+            textBoxConvertWebUsd.TabIndex = 69;
+            textBoxConvertWebUsd.Text = "0";
             // 
-            // LabelTextSendWeb
+            // textBoxInputWeb
             // 
-            LabelTextSendWeb.AutoSize = true;
-            LabelTextSendWeb.Location = new Point(11, 247);
-            LabelTextSendWeb.Name = "LabelTextSendWeb";
-            LabelTextSendWeb.Size = new Size(108, 28);
-            LabelTextSendWeb.TabIndex = 26;
-            LabelTextSendWeb.Text = "по курсу $";
-            LabelTextSendWeb.Visible = false;
+            textBoxInputWeb.Location = new Point(355, 274);
+            textBoxInputWeb.Name = "textBoxInputWeb";
+            textBoxInputWeb.Size = new Size(125, 34);
+            textBoxInputWeb.TabIndex = 68;
+            textBoxInputWeb.Text = "0";
+            textBoxInputWeb.TextChanged += TextBoxInputWeb_TextChanged;
             // 
-            // LabelUsdInputWeb
+            // textBoxUsdWeb
             // 
-            LabelUsdInputWeb.AutoSize = true;
-            LabelUsdInputWeb.Location = new Point(269, 247);
-            LabelUsdInputWeb.Name = "LabelUsdInputWeb";
-            LabelUsdInputWeb.Size = new Size(50, 28);
-            LabelUsdInputWeb.TabIndex = 27;
-            LabelUsdInputWeb.Text = "руб.";
-            LabelUsdInputWeb.Visible = false;
-            // 
-            // TextBoxInputUsdWeb
-            // 
-            TextBoxInputUsdWeb.Location = new Point(138, 247);
-            TextBoxInputUsdWeb.Name = "TextBoxInputUsdWeb";
-            TextBoxInputUsdWeb.Size = new Size(125, 34);
-            TextBoxInputUsdWeb.TabIndex = 28;
-            TextBoxInputUsdWeb.Text = "0";
-            TextBoxInputUsdWeb.Visible = false;
-            TextBoxInputUsdWeb.TextChanged += TextBoxInputUsdWeb_TextChanged;
+            textBoxUsdWeb.Location = new Point(578, 317);
+            textBoxUsdWeb.Name = "textBoxUsdWeb";
+            textBoxUsdWeb.Size = new Size(125, 34);
+            textBoxUsdWeb.TabIndex = 83;
+            textBoxUsdWeb.Text = "0";
+            textBoxUsdWeb.TextChanged += TextBoxUsdWeb_TextChanged;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(447, 371);
-            Controls.Add(ButtonTargetSystem);
-            Controls.Add(PictureBoxUSDWeb);
-            Controls.Add(LabelUSDWeb);
-            Controls.Add(ButtonReverse);
-            Controls.Add(LabelTextSend);
-            Controls.Add(TextBoxInputKZT);
-            Controls.Add(LabelKZTInput);
-            Controls.Add(LabelKZT_USD);
-            Controls.Add(PictureBoxKZTUSD);
-            Controls.Add(LabelRUBLostPercent);
-            Controls.Add(TextBoxLost);
-            Controls.Add(LabelRUBLost);
-            Controls.Add(LabelTextLost);
-            Controls.Add(LabelRUBOutput);
+            ClientSize = new Size(1377, 363);
+            Controls.Add(button12);
+            Controls.Add(labelUsdWeb);
+            Controls.Add(textBoxUsdWeb);
+            Controls.Add(button11);
+            Controls.Add(button10);
+            Controls.Add(labelWeb1);
+            Controls.Add(labelLostWebRU);
+            Controls.Add(textBoxLostWebRU);
+            Controls.Add(button7);
+            Controls.Add(labelCurrencyWebKztOutput);
+            Controls.Add(textBoxOutputWebKZ);
+            Controls.Add(labelCurrencyWebRubOutput);
+            Controls.Add(button8);
+            Controls.Add(button9);
+            Controls.Add(textBoxOutputWebRU);
+            Controls.Add(labelCurrencyWebUsd);
+            Controls.Add(textBoxConvertWebUsd);
+            Controls.Add(textBoxInputWeb);
+            Controls.Add(pictureBoxWebUsd);
+            Controls.Add(labelCurrencyWebRub);
+            Controls.Add(labelQiwi2);
+            Controls.Add(labelLostQiwi2RU);
+            Controls.Add(textBoxLostQiwi2RU);
+            Controls.Add(button4);
+            Controls.Add(labelCurrencyQiwi2KztOutput);
+            Controls.Add(textBoxOutputQiwi2KZ);
+            Controls.Add(labelCurrencyQiwi2RubOutput);
+            Controls.Add(button5);
+            Controls.Add(button6);
+            Controls.Add(textBoxOutputQiwi2RU);
+            Controls.Add(labelCurrencyQiwi2Usd);
+            Controls.Add(textBoxConvertQiwi2Usd);
+            Controls.Add(textBoxInputQiwi2);
+            Controls.Add(pictureBoxQiwiUsd);
+            Controls.Add(labelCurrencyQiwi2Rub);
+            Controls.Add(labelQiwi1);
+            Controls.Add(labelLostQiwi1RU);
+            Controls.Add(textBoxLostQiwi1RU);
+            Controls.Add(button3);
+            Controls.Add(labelCurrencyQiwi1KztOutput);
+            Controls.Add(textBoxOutputQiwi1KZ);
+            Controls.Add(labelCurrencyQiwi1RubOutput);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(textBoxOutputQiwi1RU);
+            Controls.Add(labelCurrencyQiwi1Usd);
+            Controls.Add(labelCurrencyQiwi1Kzt);
+            Controls.Add(textBoxConvertQiwi1Usd);
+            Controls.Add(labelConvert);
+            Controls.Add(textBoxConvertQiwi1Kzt);
+            Controls.Add(textBoxInputQiwi1);
+            Controls.Add(pictureBoxQiwiKzt);
+            Controls.Add(pictureBoxWeb);
+            Controls.Add(labelWeb);
+            Controls.Add(labelLost);
             Controls.Add(LabelTextOutput);
-            Controls.Add(LabelRUBInput);
-            Controls.Add(LabelTextInput);
-            Controls.Add(TextBoxOutput);
-            Controls.Add(TextBoxInput);
-            Controls.Add(PictureBoxUSD);
-            Controls.Add(PictureBoxKZT);
+            Controls.Add(labelCurrencyQiwi1Rub);
+            Controls.Add(labelTextInput);
+            Controls.Add(pictureBoxQiwi);
+            Controls.Add(pictureBoxSteam);
             Controls.Add(LabelCurrencyRates);
-            Controls.Add(LabelUSD);
-            Controls.Add(LabelKZT);
+            Controls.Add(labelQiwi);
+            Controls.Add(labelSteam);
             Controls.Add(ButtonGetRates);
-            Controls.Add(LabelTextSendWeb);
-            Controls.Add(LabelUsdInputWeb);
-            Controls.Add(TextBoxInputUsdWeb);
-            Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Segoe UI", 12F);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             MaximizeBox = false;
-            MaximumSize = new Size(465, 418);
-            MinimumSize = new Size(465, 418);
+            MaximumSize = new Size(1395, 410);
+            MinimumSize = new Size(1395, 410);
             Name = "MainForm";
-            Text = "Steam Currency от OliveWizard";
-            ((System.ComponentModel.ISupportInitialize)PictureBoxKZT).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PictureBoxUSD).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PictureBoxKZTUSD).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PictureBoxUSDWeb).EndInit();
+            Text = "Калькулятор пополнения от OliveWizard";
+            ((System.ComponentModel.ISupportInitialize)pictureBoxQiwiKzt).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxQiwiUsd).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWebUsd).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSteam).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxQiwi).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWeb).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -375,32 +829,37 @@
         #endregion
 
         private Button ButtonGetRates;
-        private Label LabelUSD;
-        private Label LabelKZT;
+        private Label labelQiwi;
+        private Label labelSteam;
         private Label LabelCurrencyRates;
-        private PictureBox PictureBoxKZT;
-        private PictureBox PictureBoxUSD;
-        private TextBox TextBoxInput;
-        private TextBox TextBoxOutput;
-        private Label LabelTextInput;
-        private Label LabelRUBInput;
+        private PictureBox pictureBoxSteam;
+        private PictureBox pictureBoxQiwi;
+        private Label labelTextInput;
+        private Label labelCurrencyQiwi1Rub;
         private Label LabelTextOutput;
-        private Label LabelRUBOutput;
-        private Label LabelTextLost;
-        private Label LabelRUBLost;
-        private TextBox TextBoxLost;
-        private Label LabelRUBLostPercent;
-        private PictureBox PictureBoxKZTUSD;
-        private Label LabelKZT_USD;
-        private Label LabelKZTInput;
-        private TextBox TextBoxInputKZT;
-        private Label LabelTextSend;
-        private Button ButtonReverse;
-        private PictureBox PictureBoxUSDWeb;
-        private Label LabelUSDWeb;
-        private Button ButtonTargetSystem;
-        private Label LabelTextSendWeb;
-        private Label LabelUsdInputWeb;
-        private TextBox TextBoxInputUsdWeb;
+        private Label labelLost;
+        private PictureBox pictureBoxWeb;
+        private Label labelWeb;
+        private TextBox textBoxInputQiwi1;
+        private TextBox textBoxConvertQiwi1Kzt;
+        private Label labelConvert;
+        private TextBox textBoxConvertQiwi1Usd;
+        private TextBox textBoxOutputQiwi1RU;
+        private TextBox textBoxOutputQiwi1KZ;
+        private TextBox textBoxLostQiwi1RU;
+        private Label labelLostQiwi1RU;
+        private Label labelLostQiwi2RU;
+        private TextBox textBoxLostQiwi2RU;
+        private TextBox textBoxOutputQiwi2KZ;
+        private TextBox textBoxOutputQiwi2RU;
+        private TextBox textBoxConvertQiwi2Usd;
+        private TextBox textBoxInputQiwi2;
+        private Label labelLostWebRU;
+        private TextBox textBoxLostWebRU;
+        private TextBox textBoxOutputWebKZ;
+        private TextBox textBoxOutputWebRU;
+        private TextBox textBoxConvertWebUsd;
+        private TextBox textBoxInputWeb;
+        private TextBox textBoxUsdWeb;
     }
 }

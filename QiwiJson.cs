@@ -17,7 +17,7 @@ namespace SteamCurrency
 
         public QiwiJson()
         {
-            result = new List<QiwiJsonResult>();
+            result = [];
         }
 
         public static QiwiJson GetData()
