@@ -11,7 +11,7 @@
     <AnalysisLevel>latest-recommended</AnalysisLevel>
     <ApplicationIcon>Flag.ico</ApplicationIcon>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <Version>$(VersionPrefix)6.0.0</Version>
+    <Version>$(VersionPrefix)7.0.0</Version>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/OneCodeUnit/SteamCurrency</RepositoryUrl>
     <NeutralLanguage>ru</NeutralLanguage>
@@ -19,8 +19,9 @@
     <Authors>OliveWizard</Authors>
     <Description>Калькулятор пополнения Steam через Qiwi</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags>Steam; Currency; Calculator; Currency rate; Qiwi; WebMoney</PackageTags>
+    <PackageTags>Steam; Currency; Calculator; Currency rate;  WebMoney</PackageTags>
     <PackageId>SteamCurrencyCalculator</PackageId>
+    <PackageProjectUrl>https://github.com/OneCodeUnit/SteamCurrency</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
